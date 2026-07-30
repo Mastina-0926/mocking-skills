@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文论分类总览 · 中国文学批评史新编</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:#edf4fc;color:#1a202c;line-height:1.7}
+.container{max-width:860px;margin:0 auto;padding:0 20px}
+
+/* nav */
+.top-bar{background:#fff;border-bottom:1px solid #d0e4f7;padding:10px 0;position:sticky;top:0;z-index:100}
+.top-bar .container{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top-bar a{color:#2b6cb0;text-decoration:none;font-size:13px;font-weight:600}
+.top-bar a:hover{text-decoration:underline}
+.top-bar .sep{color:#d0e4f7;font-size:12px}
+.top-bar .title{font-size:13px;color:#5a7a9a}
+
+/* page header */
+.page-header{text-align:center;padding:40px 0 24px}
+.page-header h1{font-size:28px;color:#1a365d;margin-bottom:6px}
+.page-header p{font-size:14px;color:#7a9bcb}
+
+/* era section */
+.era-section{margin:24px 0 40px}
+.era-title{font-size:22px;font-weight:700;color:#1a365d;padding-bottom:10px;border-bottom:2px solid #2b6cb0;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.era-title .badge{font-size:12px;font-weight:600;color:#fff;background:#2b6cb0;padding:2px 12px;border-radius:12px}
+
+/* genre tabs */
+.genre-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.genre-tab{padding:6px 16px;border-radius:8px;border:1px solid #d0e4f7;background:#fff;font-size:13px;cursor:pointer;font-family:inherit;color:#5a7a9a;transition:all 0.15s}
+.genre-tab.active{background:#2b6cb0;color:#fff;border-color:#2b6cb0}
+.genre-tab:hover:not(.active){background:#e8f4fd}
+
+/* genre section */
+.genre-section{margin-bottom:28px;display:block}
+.genre-section.hidden{display:none}
+.genre-head{font-size:17px;font-weight:700;color:#2b6cb0;margin-bottom:10px;padding:8px 14px;background:#e8f4fd;border-radius:8px;display:flex;align-items:center;gap:8px}
+.genre-head .sub{font-size:12px;font-weight:400;color:#7a9bcb}
+
+/* person card grid */
+.person-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.person-card{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #d0e4f7;transition:transform 0.15s}
+.person-card:hover{transform:translateY(-2px);box-shadow:0 2px 8px rgba(43,108,176,0.08)}
+.person-card .p-name{font-size:14px;font-weight:700;color:#1a365d}
+.person-card .p-tagline{font-size:12px;color:#2b6cb0;font-style:italic;margin:2px 0 4px}
+.person-card .p-school{font-size:11px;color:#7a9bcb}
+.person-card .p-detail{font-size:12px;color:#4a5a7a;margin-top:4px;line-height:1.6}
+.person-card .p-stars{color:#f6ad55;font-size:12px}
+
+/* summary card */
+.summary-card{background:#fff;border-radius:10px;padding:16px;border:1px solid #d0e4f7;margin-bottom:16px}
+.summary-card h4{font-size:14px;color:#2b6cb0;margin-bottom:6px}
+.summary-card p{font-size:12px;color:#4a5a7a;line-height:1.7}
+
+/* note */
+.note{background:#fffbe6;border:1px solid #f6e05e;border-radius:10px;padding:14px 18px;margin:20px 0}
+.note h4{font-size:14px;color:#b7791f;margin-bottom:4px}
+.note p{font-size:13px;color:#744210;line-height:1.6}
+
+/* responsive */
+@media(max-width:640px){
+  .person-grid{grid-template-columns:1fr}
+  .page-header h1{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <div class="container">
+    <a href="index.html">🏠 首页</a>
+    <span class="sep">|</span>
+    <a href="graph.html">🗺️ 知识图谱</a>
+    <a href="review.html">🔄 闪卡复习</a>
+    <a href="interview.html">🎤 面试模拟</a>
+    <span class="sep">|</span>
+    <span class="title">📋 文论分类总览</span>
+  </div>
+</div>
+
+<div class="container">
+<div class="page-header">
+  <h1>📋 文论分类总览</h1>
+  <p>按时代 × 文体分类整理 · 基于《中国文学批评史新编》第二版下册 · 明代 + 清代前中期</p>
+</div>
+
+<div class="note">
+  <h4>📌 关于"书论"与"画论"的说明</h4>
+  <p>《中国文学批评史新编》是一部<b>文学批评史</b>著作，内容围绕诗文批评、词论、戏曲批评和小说批评展开。本书并未设专章讨论<b>书论</b>（书法理论）和<b>画论</b>（绘画理论）。<br><br>
+  唯一相关的是：近代姚华将曲论与书论、画论联通论述（已删除，不在当前范围内）；刘熙载《艺概》包含《书概》论书法（已删除）。<br><br>
+  需要书论和画论资料，建议读《中国书画理论史》《中国美学史》等专门著作。</p>
+</div>
+
+<div class="era-section" id="ming">
+<div class="era-title"><span class="badge">明 代</span> 1368—1644</div>
+
+<div class="genre-tabs">
+  <button class="genre-tab active" onclick="filterGenre('ming','all',this)">全部</button>
+  <button class="genre-tab" onclick="filterGenre('ming','poem',this)">诗论</button>
+  <button class="genre-tab" onclick="filterGenre('ming','prose',this)">文论</button>
+  <button class="genre-tab" onclick="filterGenre('ming','drama',this)">戏曲批评</button>
+  <button class="genre-tab" onclick="filterGenre('ming','novel',this)">小说批评</button>
+</div>
+
+<!-- 明代诗论 -->
+<div class="genre-section" data-era="ming" data-genre="poem">
+<div class="genre-head">📜 诗论 <span class="sub">明代是诗论流派争鸣最激烈的时期</span></div>
+<div class="summary-card"><h4>📖 明代诗论发展脉络</h4><p>明初（宋濂、高启、刘基）→ 台阁体（三杨、李东阳）→ 前七子（李梦阳、何景明："文必秦汉，诗必盛唐"）→ 唐宋派（唐顺之"本色"论）→ 后七子（李攀龙、王世贞）→ 泰州学派/李贽（"童心说"）→ 公安派（袁宏道"独抒性灵"）→ 竟陵派（钟惺、谭元春"幽深孤峭"）→ 明末（陈子龙"情与境会"）</p></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">宋濂 <span class="p-stars">★★</span></div><div class="p-school">明初 · 开国文臣</div><div class="p-tagline">"明道之谓文，立教之谓文"</div><div class="p-detail">主张文道合一、宗经师古。将文分三等：立德之文为上，明道为中文中，失道为文下。但又存在矛盾：反对摹拟，赞赏苏轼、杨维桢。</div></div>
+  <div class="person-card"><div class="p-name">高启 <span class="p-stars">★★</span></div><div class="p-school">明初诗文</div><div class="p-tagline">诗人自觉意识的觉醒</div><div class="p-detail">论诗主张广泛模拟前代名家之长，自叙其诗时显示出诗人自觉意识，对明代诗学有开启之功。</div></div>
+  <div class="person-card"><div class="p-name">刘基 <span class="p-stars">★★</span></div><div class="p-school">明初诗文</div><div class="p-tagline">强调诗歌讽刺政治、批判现实</div><div class="p-detail">早期诗论强调诗歌讽刺政治、批判现实的作用，与宋濂的理学取向形成对比。刘伯温。</div></div>
+  <div class="person-card"><div class="p-name">台阁体 <span class="p-stars">★★</span></div><div class="p-school">永乐至弘治</div><div class="p-tagline">"三杨"为代表的萎弱文风</div><div class="p-detail">三杨（杨士奇、杨荣、杨溥）为代表，诗文平庸芜弱、粉饰太平。后期李东阳开复古先河。</div></div>
+  <div class="person-card"><div class="p-name">李东阳 <span class="p-stars">★★</span></div><div class="p-school">台阁体后期</div><div class="p-tagline">开复古文学运动的先河</div><div class="p-detail">台阁体后期人物，力主规模唐诗格调，开复古文学运动的先河。对前后七子有直接影响。</div></div>
+  <div class="person-card"><div class="p-name">李梦阳 <span class="p-stars">★★</span></div><div class="p-school">前七子领袖</div><div class="p-tagline">"文必秦汉，诗必盛唐"</div><div class="p-detail">以渊奥文辞和高古格调打倒了台阁体。"尺寸古法"强调摹拟。晚年幡然醒悟："真诗果在民间"。</div></div>
+  <div class="person-card"><div class="p-name">何景明 <span class="p-stars">★★</span></div><div class="p-school">前七子</div><div class="p-tagline">"富于材积，领会神情，不仿形迹"</div><div class="p-detail">反对李梦阳"刻意古范"，主张"临景构结，不仿形迹"。倡言"诗文之法亡于韩愈"。</div></div>
+  <div class="person-card"><div class="p-name">徐祯卿 <span class="p-stars">★</span></div><div class="p-school">前七子</div><div class="p-tagline">"因情立格"说</div><div class="p-detail">明确肯定情与格的主从关系，识见出李梦阳之上。</div></div>
+  <div class="person-card"><div class="p-name">谢榛 <span class="p-stars">★★</span></div><div class="p-school">后七子</div><div class="p-tagline">诗歌创作艺术特征分析</div><div class="p-detail">后七子之一。分析诗歌创作艺术特征有自己的会心。论诗强调情与景的关系，主张"诗有四格"：兴、趣、意、理。</div></div>
+  <div class="person-card"><div class="p-name">李攀龙 <span class="p-stars">★★</span></div><div class="p-school">后七子领袖</div><div class="p-tagline">重复复古路线，强调"文必秦汉，诗必盛唐"</div><div class="p-detail">后七子领袖（与王世贞齐名）。造成相当声势。其复古主张导致模拟剽窃的流弊。</div></div>
+  <div class="person-card"><div class="p-name">王世贞 <span class="p-stars">★★</span></div><div class="p-school">后七子领袖</div><div class="p-tagline">晚年有所追悔</div><div class="p-detail">重复前七子复古路线。晚年对自己前期论点有所追悔，发表折衷言论。</div></div>
+  <div class="person-card"><div class="p-name">李贽 <span class="p-stars">★★★</span></div><div class="p-school">泰州学派</div><div class="p-tagline">"童心说"——"天下之至文，未有不出于童心焉者也"</div><div class="p-detail">童心即真心、本心。认为优秀戏曲、小说皆可成"天下之至文"。评点《水浒传》，提高小说地位。天然本色为曲之最上乘。</div></div>
+  <div class="person-card"><div class="p-name">袁宗道 <span class="p-stars">★★</span></div><div class="p-school">公安派"三袁"</div><div class="p-tagline">公安派先驱</div><div class="p-detail">公安派创始人之一（与弟袁宏道、袁中道并称"三袁"）。推崇白居易、苏轼，主张文学革新，反对拟古。</div></div>
+  <div class="person-card"><div class="p-name">袁宏道 <span class="p-stars">★★★</span></div><div class="p-school">公安派领袖</div><div class="p-tagline">"独抒性灵，不拘格套"</div><div class="p-detail">强调文学的时代性和个性化。要求创作具有真情实感，使用当时语言，反对陈规旧套。猛烈涤荡拟古文风。受李贽影响。</div></div>
+  <div class="person-card"><div class="p-name">袁中道 <span class="p-stars">★★</span></div><div class="p-school">公安派</div><div class="p-tagline">公安派后期修正者</div><div class="p-detail">对公安末流的弊病有所纠正，但创新意气也有所衰退。提出"学以充才"。</div></div>
+  <div class="person-card"><div class="p-name">钟惺 <span class="p-stars">★★</span></div><div class="p-school">竟陵派</div><div class="p-tagline">"求古人真诗之所在"</div><div class="p-detail">提倡"幽深孤峭"的风格。将求真与学古结合，试图矫正公安末流轻佻浅率。</div></div>
+  <div class="person-card"><div class="p-name">谭元春 <span class="p-stars">★★</span></div><div class="p-school">竟陵派</div><div class="p-tagline">与钟惺共创竟陵派</div><div class="p-detail">继公安派而起，既反对前后七子拟古，也矫正公安末流。提倡"幽深孤峭"。</div></div>
+  <div class="person-card"><div class="p-name">方孝孺 <span class="p-stars">★★</span></div><div class="p-school">明初</div><div class="p-tagline">推崇庄周、李白、苏轼的浪漫神采</div><div class="p-detail">宋濂学生。维护儒道又推崇庄周、李白、苏轼的浪漫风格。对尊唐贬宋表示不满。基本观点："文之为用，明道立政"。</div></div>
+  <div class="person-card"><div class="p-name">陈子龙 <span class="p-stars">★</span></div><div class="p-school">明末</div><div class="p-tagline">"情与境会"，爱国忧时</div><div class="p-detail">突破形式拟古，发扬"发愤著书"精神，强调文学抒写爱国忧时。注重"情与境会"——真情与现实环境密切联系。</div></div>
+</div>
+</div>
+
+<!-- 明代文论 -->
+<div class="genre-section" data-era="ming" data-genre="prose">
+<div class="genre-head">📝 文论 <span class="sub">散文理论，主要是唐宋派与复古派的论争</span></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">唐宋派 <span class="p-stars">★★★</span></div><div class="p-school">王慎中、唐顺之、茅坤、归有光</div><div class="p-tagline">学习唐宋八大家，提倡平易自然</div><div class="p-detail">提倡学习"唐宋八家"散文的神理和平易自然语言，与"文必秦汉"之说相峙。影响深远至桐城派。</div></div>
+  <div class="person-card"><div class="p-name">唐顺之 <span class="p-stars">★★</span></div><div class="p-school">唐宋派</div><div class="p-tagline">"本色"论——文章应"直据胸臆"</div><div class="p-detail">提出"本色"论，主张文章应"直据胸臆"，有"真精神与千古不可磨灭之见"。但几乎否定了艺术形式的作用。</div></div>
+  <div class="person-card"><div class="p-name">茅坤 <span class="p-stars">★★</span></div><div class="p-school">唐宋派</div><div class="p-tagline">编纂《唐宋八大家文钞》</div><div class="p-detail">编纂《唐宋八大家文钞》，对确立唐宋八大家在文学史上的经典地位起了关键作用。</div></div>
+  <div class="person-card"><div class="p-name">归有光 <span class="p-stars">★★</span></div><div class="p-school">唐宋派</div><div class="p-tagline">唐宋派代表，清代桐城派先声</div><div class="p-detail">明代散文大家，继承唐宋八大家传统，散文风格平易自然。对清代桐城派有直接影响。</div></div>
+  <div class="person-card"><div class="p-name">艾南英 <span class="p-stars">★</span></div><div class="p-school">明末唐宋派</div><div class="p-tagline">重振唐宋派</div><div class="p-detail">明末重振唐宋派颓波，与陈子龙等复古派有过争论。继承宗经明道的文论传统。</div></div>
+</div>
+</div>
+
+<!-- 明代戏曲批评 -->
+<div class="genre-section" data-era="ming" data-genre="drama">
+<div class="genre-head">🎭 戏曲批评 <span class="sub">明代曲论从草创到集大成，吴江与临川两派论争是核心事件</span></div>
+<div class="summary-card"><h4>📖 明代曲论发展脉络</h4><p>明初（朱权《太和正音谱》+ 高则诚"不关风化体"）→ 嘉靖隆庆（李开先、何良俊、徐渭《南词叙录》、李贽）→ 万历至明亡：吴江派（沈璟格律至上）vs 临川派（汤显祖"意趣"至上）论争 → 王骥德《曲律》集大成 → 晚明曲论（吕天成、徐复祚、凌濛初、祁彪佳等）</p></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">朱权 <span class="p-stars">★★</span></div><div class="p-school">明初曲论</div><div class="p-tagline">《太和正音谱》——最早曲论专著</div><div class="p-detail">称戏曲为"太平之胜事"。重视音律，注重演唱，追求典雅华美语言风格。反映明初文艺的政治倾向。</div></div>
+  <div class="person-card"><div class="p-name">高则诚 <span class="p-stars">★★</span></div><div class="p-school">明初曲论</div><div class="p-tagline">"不关风化体，纵好也徒然"</div><div class="p-detail">《琵琶记》作者。主张戏曲为风化服务，符合明初政治需要，在明初剧坛占支配地位。</div></div>
+  <div class="person-card"><div class="p-name">李开先 <span class="p-stars">★★</span></div><div class="p-school">嘉靖曲论</div><div class="p-tagline">发扬元曲"本色"传统</div><div class="p-detail">注意民间通俗文学中的"真诗"和"真情"。贬斥专事雕琢。主张"激劝人心，感移风化"。</div></div>
+  <div class="person-card"><div class="p-name">何良俊 <span class="p-stars">★★</span></div><div class="p-school">嘉靖曲论</div><div class="p-tagline">"《西厢》全带脂粉，《琵琶》专弄学问"</div><div class="p-detail">其本色语论断引起广泛反响。明确主张戏曲语言必须接近大众。音韵格律见解后被沈璟奉为圭臬。</div></div>
+  <div class="person-card"><div class="p-name">徐渭 <span class="p-stars">★★★</span></div><div class="p-school">明代曲论</div><div class="p-tagline">"贱相色，贵本色"</div><div class="p-detail">《南词叙录》——第一部南戏专论。反对鄙视南戏。"曲本取于感发人心，歌之使奴童妇女皆喻"。</div></div>
+  <div class="person-card"><div class="p-name">沈璟 <span class="p-stars">★★★</span></div><div class="p-school">吴江派领袖</div><div class="p-tagline">"宁使时人不鉴赏，无使人挠喉捩嗓"</div><div class="p-detail">严守格律，戏曲语言通俗本色。与汤显祖形成著名论争。</div></div>
+  <div class="person-card"><div class="p-name">汤显祖 <span class="p-stars">★★★</span></div><div class="p-school">临川派领袖</div><div class="p-tagline">"神情合至"，以"情"为戏曲冲突基础</div><div class="p-detail">创作重视"意趣"，突出"情"的主导地位。把"情"与"理"的矛盾视为戏曲冲突的基础。</div></div>
+  <div class="person-card"><div class="p-name">王骥德 <span class="p-stars">★★★</span></div><div class="p-school">明代曲论</div><div class="p-tagline">"法与词必两擅其极"</div><div class="p-detail">《曲律》——明代曲论集大成。折衷吴江临川。"论曲，当看其全体力量如何"。"大头脑"——抓住作品总倾向。</div></div>
+  <div class="person-card"><div class="p-name">吕天成 <span class="p-stars">★★</span></div><div class="p-school">明代戏曲理论</div><div class="p-tagline">《曲品》</div><div class="p-detail">赞同沈璟格律论，对其偏激有所修正。所著《曲品》是重要的戏曲批评著作。</div></div>
+  <div class="person-card"><div class="p-name">徐复祚 <span class="p-stars">★★</span></div><div class="p-school">晚明曲论</div><div class="p-tagline">对吴江临川的折衷批评</div><div class="p-detail">对两派的优长短缺、戏曲艺术特征和社会作用分别发表见解，为晚明曲论增添新内容。</div></div>
+  <div class="person-card"><div class="p-name">凌濛初 <span class="p-stars">★★</span></div><div class="p-school">晚明曲论</div><div class="p-tagline">"二拍"作者，曲论亦有建树</div><div class="p-detail">对吴江临川各有评骘，持折衷立场。丰富晚明曲论。</div></div>
+  <div class="person-card"><div class="p-name">祁彪佳 <span class="p-stars">★★</span></div><div class="p-school">晚明曲论</div><div class="p-tagline">《远山堂曲品》《远山堂剧品》</div><div class="p-detail">重要的戏曲批评著作，对两派提出自己的见解。</div></div>
+  <div class="person-card"><div class="p-name">王思任 <span class="p-stars">★</span></div><div class="p-school">临川派辩护</div><div class="p-tagline">维护"临川四梦"</div><div class="p-detail">在论争中维护汤显祖，为"临川四梦"辩护，同时汲取吴江派的合理见解。</div></div>
+  <div class="person-card"><div class="p-name">茅元仪 <span class="p-stars">★</span></div><div class="p-school">临川派辩护</div><div class="p-tagline">为汤显祖辩护</div><div class="p-detail">站在汤显祖一边辩护，也承认吴江派理论的合理之处。</div></div>
+</div>
+</div>
+
+<!-- 明代小说批评 -->
+<div class="genre-section" data-era="ming" data-genre="novel">
+<div class="genre-head">📚 小说批评 <span class="sub">随"四大奇书"的流行而繁荣，历史小说信实派与传奇派形成论争</span></div>
+<div class="summary-card"><h4>📖 明代小说批评发展</h4><p>历史小说论争（信实派：张尚德、可观道人 vs 传奇派：熊大木、袁于令）→ 神怪小说（吴承恩、谢肇淛、袁于令论"幻"与"真"）→ 《水浒传》评论（唐顺之、李贽、叶昼论艺术真实性）→ 世情小说（欣欣子、冯梦龙论"情理"）→ 胡应麟《少室山房笔丛》系统分类</p></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">张尚德 <span class="p-stars">★★</span></div><div class="p-school">历史小说·信实派</div><div class="p-tagline">历史演义应"羽翼信史"</div><div class="p-detail">主张历史演义应尊重史实，代表"信实派"。与后来提倡虚构的"传奇派"形成两派对立。</div></div>
+  <div class="person-card"><div class="p-name">熊大木 <span class="p-stars">★★</span></div><div class="p-school">历史小说·传奇派</div><div class="p-tagline">历史演义可"虚实结合"</div><div class="p-detail">主张可以适当虚构，不必拘泥史实，代表"传奇派"。与张尚德形成明代小说理论两大阵营。</div></div>
+  <div class="person-card"><div class="p-name">袁于令 <span class="p-stars">★★</span></div><div class="p-school">历史小说·传奇派</div><div class="p-tagline">提倡"传奇贵幻"</div><div class="p-detail">主张小说创作应当重视虚构和艺术想象，不必拘泥于历史事实。</div></div>
+  <div class="person-card"><div class="p-name">可观道人 <span class="p-stars">★</span></div><div class="p-school">历史小说·信实派</div><div class="p-tagline">强调"羽翼信史"</div><div class="p-detail">持"信实派"立场，与张尚德同属一派。</div></div>
+  <div class="person-card"><div class="p-name">冯梦龙 <span class="p-stars">★★</span></div><div class="p-school">明代小说理论</div><div class="p-tagline">"三言"编纂者，注重"情理"</div><div class="p-detail">强调反映日常生活和普通人物，要求合乎"情理"，取得艺术中的"真"。对我国小说发展史有概论性贡献。</div></div>
+  <div class="person-card"><div class="p-name">胡应麟 <span class="p-stars">★★</span></div><div class="p-school">明代小说理论</div><div class="p-tagline">《少室山房笔丛》</div><div class="p-detail">对各类小说作了比较全面的探讨，从先秦至明进行了系统分类和论述，为前所未有。</div></div>
+  <div class="person-card"><div class="p-name">欣欣子 <span class="p-stars">★★</span></div><div class="p-school">世情小说论</div><div class="p-tagline">全面揭示世情小说表现特点</div><div class="p-detail">《金瓶梅》序言作者。强调反映日常生活和"物态人情"，在小说批评史上有重要影响。</div></div>
+  <div class="person-card"><div class="p-name">叶昼 <span class="p-stars">★★</span></div><div class="p-school">小说评点</div><div class="p-tagline">托名李贽评点小说</div><div class="p-detail">托名李贽评点《水浒传》等，注重小说与现实生活的关系，阐述艺术真实性问题。</div></div>
+  <div class="person-card"><div class="p-name">郎瑛 <span class="p-stars">★</span></div><div class="p-school">小说笔记</div><div class="p-tagline">《七修类稿》中的小说论述</div><div class="p-detail">其笔记对小说有所论述，是明代小说理论批评的组成部分。</div></div>
+</div>
+</div>
+</div>
+
+<!-- ════════════════ 清代 ════════════════ -->
+<div class="era-section" id="qing">
+<div class="era-title"><span class="badge">清代前中期</span> 1644—约1840</div>
+
+<div class="genre-tabs">
+  <button class="genre-tab active" onclick="filterGenre('qing','all',this)">全部</button>
+  <button class="genre-tab" onclick="filterGenre('qing','poem',this)">诗论</button>
+  <button class="genre-tab" onclick="filterGenre('qing','prose',this)">文论</button>
+  <button class="genre-tab" onclick="filterGenre('qing','ci',this)">词论</button>
+  <button class="genre-tab" onclick="filterGenre('qing','drama',this)">戏曲批评</button>
+  <button class="genre-tab" onclick="filterGenre('qing','novel',this)">小说批评</button>
+</div>
+
+<!-- 清代诗论 -->
+<div class="genre-section" data-era="qing" data-genre="poem">
+<div class="genre-head">📜 诗论 <span class="sub">清代诗论成就最高——"神韵""格调""性灵""肌理"四大说</span></div>
+<div class="summary-card"><h4>📖 清代诗论发展脉络</h4><p>明清之际（钱谦益"返经"、黄宗羲、顾炎武、王夫之"情景交融"）→ 清初（王士禛"神韵"说）→ 清中叶（叶燮《原诗》"理事情+才胆识力"→ 沈德潜"格调"说 → 袁枚"性灵"说 → 翁方纲"肌理"说）→ 赵翼"江山代有才人出"</p></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">钱谦益 <span class="p-stars">★★</span></div><div class="p-school">清初文坛领袖</div><div class="p-tagline">"返经"论</div><div class="p-detail">以"六经"为源头，诗文分别以《三百篇》和六经为"祖"。文学三要素："灵心、世运、学问"。</div></div>
+  <div class="person-card"><div class="p-name">黄宗羲 <span class="p-stars">★★★</span></div><div class="p-school">明清之际</div><div class="p-tagline">发扬"发愤著书"精神</div><div class="p-detail">强调文学的时代性、批判性。重视诗歌的抒情本质。</div></div>
+  <div class="person-card"><div class="p-name">顾炎武 <span class="p-stars">★★★</span></div><div class="p-school">明清之际</div><div class="p-tagline">"文须有益于天下"</div><div class="p-detail">强调文学的社会功用。"经世致用"的文学观。《日知录》。</div></div>
+  <div class="person-card"><div class="p-name">王夫之 <span class="p-stars">★★★</span></div><div class="p-school">明清之际</div><div class="p-tagline">"情景名为二，而实不可离"</div><div class="p-detail">情景交融论——诗学最核心理论。"现量"说——诗歌直接呈现直觉体验。重视"兴观群怨"。</div></div>
+  <div class="person-card"><div class="p-name">王士禛 <span class="p-stars">★★★</span></div><div class="p-school">清初诗坛盟主</div><div class="p-tagline">"神韵"说——"不著一字，尽得风流"</div><div class="p-detail">推崇盛唐王孟一派冲和淡远风格。提倡含蓄蕴藉。继承严羽"妙悟"说。</div></div>
+  <div class="person-card"><div class="p-name">叶燮 <span class="p-stars">★★★</span></div><div class="p-school">清初诗论</div><div class="p-tagline">《原诗》——"理事情"与"才胆识力"</div><div class="p-detail">创作四大要素：理、事、情。诗人四种能力：才、胆、识、力——"识"居首位。清代最系统的诗论体系。</div></div>
+  <div class="person-card"><div class="p-name">沈德潜 <span class="p-stars">★★★</span></div><div class="p-school">乾隆诗坛盟主</div><div class="p-tagline">"格调"说——崇尚唐诗格律</div><div class="p-detail">重视"温柔敦厚"诗教传统。与王士禛"神韵"说互补。</div></div>
+  <div class="person-card"><div class="p-name">袁枚 <span class="p-stars">★★★</span></div><div class="p-school">乾隆诗坛</div><div class="p-tagline">"性灵"说——"诗者，人之性情也"</div><div class="p-detail">反对沈德潜"格调"说，批判温柔敦厚教条。主张写个人真实性情。《随园诗话》。</div></div>
+  <div class="person-card"><div class="p-name">翁方纲 <span class="p-stars">★★</span></div><div class="p-school">乾隆诗坛</div><div class="p-tagline">"肌理"说——以考证为准</div><div class="p-detail">强调学问和考据对诗歌的重要性。与袁枚"性灵"说直接对立。</div></div>
+  <div class="person-card"><div class="p-name">赵翼 <span class="p-stars">★★</span></div><div class="p-school">清代诗论</div><div class="p-tagline">"江山代有才人出，各领风骚数百年"</div><div class="p-detail">论诗主张创新，反对盲目拟古。强调每个时代应有自己的文学成就。与袁枚性灵说相通。</div></div>
+  <div class="person-card"><div class="p-name">厉鹗 <span class="p-stars">★</span></div><div class="p-school">宋诗派</div><div class="p-tagline">宋诗派代表</div><div class="p-detail">推崇宋代诗歌，与浙派关系密切。</div></div>
+</div>
+</div>
+
+<!-- 清代文论 -->
+<div class="genre-section" data-era="qing" data-genre="prose">
+<div class="genre-head">📝 文论 <span class="sub">桐城派是清代最大的散文流派，统领文坛二百余年</span></div>
+<div class="summary-card"><h4>📖 清代文论发展脉络</h4><p>清初三大家（侯方域、魏禧、汪琬）→ 桐城派（方苞"义法"→ 刘大櫆"因声求气"→ 姚鼐"义理考据辞章"）→ 汉学家文论（章学诚《文史通义》"六经皆史""文德"说）→ 阳湖派</p></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">侯方域 <span class="p-stars">★</span></div><div class="p-school">清初文人</div><div class="p-tagline">清初古文三大家之一</div><div class="p-detail">学习唐宋派，注重文章法度和才情。与魏禧、汪琬并称"清初三大家"。</div></div>
+  <div class="person-card"><div class="p-name">魏禧 <span class="p-stars">★★</span></div><div class="p-school">清初散文家</div><div class="p-tagline">"积理练识"说</div><div class="p-detail">以见识为文章的根本。强调文章应表现作者的胸襟和见识。</div></div>
+  <div class="person-card"><div class="p-name">汪琬 <span class="p-stars">★</span></div><div class="p-school">清初文人</div><div class="p-tagline">清初古文三大家之一</div><div class="p-detail">论文主张纯正典雅，与侯方域、魏禧风格各异。</div></div>
+  <div class="person-card"><div class="p-name">方苞 <span class="p-stars">★★★</span></div><div class="p-school">桐城派始祖</div><div class="p-tagline">"义法"说——"言有物""言有序"</div><div class="p-detail">"义"即内容充实，"法"即形式条理。强调内容与形式统一。清代散文理论的基石。</div></div>
+  <div class="person-card"><div class="p-name">刘大櫆 <span class="p-stars">★★</span></div><div class="p-school">桐城派</div><div class="p-tagline">"因声求气"</div><div class="p-detail">发展"义法"说，注重"神气"。通过诵读体会文章气势。</div></div>
+  <div class="person-card"><div class="p-name">姚鼐 <span class="p-stars">★★★</span></div><div class="p-school">桐城派集大成者</div><div class="p-tagline">"义理、考据、辞章"三者合一</div><div class="p-detail">桐城派文论巅峰。编《古文辞类纂》。"阴阳刚柔"说——文章风格分类理论。</div></div>
+  <div class="person-card"><div class="p-name">章学诚 <span class="p-stars">★★★</span></div><div class="p-school">史学家</div><div class="p-tagline">"六经皆史"</div><div class="p-detail">《文史通义》。"文德"说——"临文必敬，论古必恕"。反对桐城派，提倡学问与文章结合。</div></div>
+</div>
+</div>
+
+<!-- 清代词论 -->
+<div class="genre-section" data-era="qing" data-genre="ci">
+<div class="genre-head">🎵 词论 <span class="sub">清代词学"中兴"——浙西派与常州词派先后主盟</span></div>
+<div class="summary-card"><h4>📖 清代词论发展脉络</h4><p>清初（陈维崧阳羡派豪放宗苏辛 ↔ 朱彝尊浙西派醇雅宗姜张）→ 清中叶（常州词派张惠言"意内言外"→ 周济"寄托出入"）→ 晚清（陈廷焯《白雨斋词话》"沉郁"说、谭献）</p></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">陈维崧 <span class="p-stars">★★</span></div><div class="p-school">阳羡派领袖</div><div class="p-tagline">阳羡派词风豪放</div><div class="p-detail">宗法苏辛，与朱彝尊浙西派形成对峙。</div></div>
+  <div class="person-card"><div class="p-name">朱彝尊 <span class="p-stars">★★</span></div><div class="p-school">浙西派领袖</div><div class="p-tagline">浙西派宗法南宋醇雅清空</div><div class="p-detail">宗法姜夔、张炎，追求醇雅清空词风。与陈维崧阳羡派对峙。</div></div>
+  <div class="person-card"><div class="p-name">张惠言 <span class="p-stars">★★★</span></div><div class="p-school">常州词派创始人</div><div class="p-tagline">"意内言外"——词应寄托深远</div><div class="p-detail">编《词选》开创常州词派。强调词的"比兴寄托"功能。</div></div>
+  <div class="person-card"><div class="p-name">周济 <span class="p-stars">★★★</span></div><div class="p-school">常州词派发展者</div><div class="p-tagline">"词亦有史"——"非寄托不入，专寄托不出"</div><div class="p-detail">发展了张惠言的理论。使常州词派更加系统，成为清代最有影响的词学流派。</div></div>
+  <div class="person-card"><div class="p-name">陈廷焯 <span class="p-stars">★★</span></div><div class="p-school">清代词论</div><div class="p-tagline">《白雨斋词话》——"沉郁"说</div><div class="p-detail">重要的词学理论著作。发展了常州词派理论，对词的艺术特征有深入分析。</div></div>
+  <div class="person-card"><div class="p-name">谭献 <span class="p-stars">★★</span></div><div class="p-school">清代词论</div><div class="p-tagline">复堂词话，常州词派发展</div><div class="p-detail">承接张惠言、周济，进一步阐发常州词派的"寄托"理论。</div></div>
+</div>
+</div>
+
+<!-- 清代戏曲批评 -->
+<div class="genre-section" data-era="qing" data-genre="drama">
+<div class="genre-head">🎭 戏曲批评 <span class="sub">李渔《闲情偶寄》是中国古代戏曲理论的顶峰</span></div>
+<div class="summary-card"><h4>📖 清代曲论发展脉络</h4><p>清初（金圣叹评点《西厢记》）→ 李渔《闲情偶寄》（"结构第一"——最系统最完整的戏曲理论）→ 洪升《长生殿》+ 孔尚任《桃花扇》→ 地方戏繁盛时期的戏曲理论</p></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">李渔 <span class="p-stars">★★★</span></div><div class="p-school">清代戏曲</div><div class="p-tagline">《闲情偶寄》——"结构第一"</div><div class="p-detail">中国古代戏曲理论最系统最完整的著作。"立主脑""密针线""减头绪"。打破"音律第一"传统。</div></div>
+  <div class="person-card"><div class="p-name">洪升 <span class="p-stars">★</span></div><div class="p-school">清代戏曲</div><div class="p-tagline">《长生殿》作者</div><div class="p-detail">在戏曲批评上也有一定贡献，与孔尚任并称"南洪北孔"。</div></div>
+  <div class="person-card"><div class="p-name">孔尚任 <span class="p-stars">★★</span></div><div class="p-school">清代戏曲</div><div class="p-tagline">《桃花扇》作者</div><div class="p-detail">在戏曲理论和批评上有贡献。陈子龙等对其有影响。</div></div>
+  <div class="person-card"><div class="p-name">吴仪一 <span class="p-stars">★</span></div><div class="p-school">清代戏曲</div><div class="p-tagline">评点《长生殿》</div><div class="p-detail">清初戏曲批评家，评点洪升《长生殿》。</div></div>
+  <div class="person-card"><div class="p-name">刘廷玑 <span class="p-stars">★</span></div><div class="p-school">清代戏曲</div><div class="p-tagline">清代曲论家</div><div class="p-detail">在戏曲批评上有所建树。</div></div>
+</div>
+</div>
+
+<!-- 清代小说批评 -->
+<div class="genre-section" data-era="qing" data-genre="novel">
+<div class="genre-head">📚 小说批评 <span class="sub">从金圣叹到脂砚斋，评点式批评达到高峰</span></div>
+<div class="summary-card"><h4>📖 清代小说批评发展脉络</h4><p>清初（金圣叹评点《水浒传》"因缘生法"→ 毛宗岗评点《三国演义》）→ 张竹坡评点《金瓶梅》"情理"说 → 蒲松龄《聊斋志异》浪漫主义 → 脂砚斋评点《红楼梦》"真正情理之文" → 曹雪芹现实主义创作主张 → 闲斋老人评点《儒林外史》"功名富贵"说</p></div>
+<div class="person-grid">
+  <div class="person-card"><div class="p-name">金圣叹 <span class="p-stars">★★★</span></div><div class="p-school">清初批评家</div><div class="p-tagline">"澄怀格物，因缘生法"</div><div class="p-detail">评点《西厢记》《水浒传》。"因缘生法"——人物性格源于环境。"一百八个人性格，真是一百八样"。第一个以人物形象塑造为评价标准。</div></div>
+  <div class="person-card"><div class="p-name">毛宗岗 <span class="p-stars">★★</span></div><div class="p-school">小说评点</div><div class="p-tagline">评点《三国演义》</div><div class="p-detail">与其父毛纶评点《三国演义》，强调历史小说的真实性问题。</div></div>
+  <div class="person-card"><div class="p-name">张道深（张竹坡） <span class="p-stars">★★</span></div><div class="p-school">小说评点</div><div class="p-tagline">"做文章不过情理二字"</div><div class="p-detail">评点《金瓶梅》。提出"稗官者，寓言也，其假捏一人，幻造一事"——认识小说的虚构性。</div></div>
+  <div class="person-card"><div class="p-name">蒲松龄 <span class="p-stars">★★★</span></div><div class="p-school">清初小说</div><div class="p-tagline">《聊斋志异》——"以泄愤懑，抒写愁思"</div><div class="p-detail">"驰幻妄，光怪陆离"，具有强烈批判现实精神。推进了浪漫主义小说理论的深化。</div></div>
+  <div class="person-card"><div class="p-name">纪昀 <span class="p-stars">★★</span></div><div class="p-school">清初小说</div><div class="p-tagline">《阅微草堂笔记》</div><div class="p-detail">与蒲松龄《聊斋》创作路数不同，代表清代小说批评的另一重要声音。</div></div>
+  <div class="person-card"><div class="p-name">余集 <span class="p-stars">★</span></div><div class="p-school">小说批评</div><div class="p-tagline">《聊斋志异序》</div><div class="p-detail">指出蒲松龄创作动机是"以泄愤懑，抒写愁思"。</div></div>
+  <div class="person-card"><div class="p-name">脂砚斋 <span class="p-stars">★★★</span></div><div class="p-school">清初小说批评</div><div class="p-tagline">"事之所无，而理之必有"</div><div class="p-detail">评点《红楼梦》。"真正情理之文"。"真正美人有一陋处"写实美学。</div></div>
+  <div class="person-card"><div class="p-name">曹雪芹 <span class="p-stars">★★★</span></div><div class="p-school">清初小说</div><div class="p-tagline">"取其事体情理"</div><div class="p-detail">反对"千部一腔，千人一面"。"追踪蹑迹，不敢稍加穿凿"——现实主义创作原则。</div></div>
+  <div class="person-card"><div class="p-name">闲斋老人 <span class="p-stars">★★</span></div><div class="p-school">《儒林外史》评点</div><div class="p-tagline">"功名富贵四字是此书之大主脑"</div><div class="p-detail">"不加论断，而是非立见"客观写实。"真玉有瑕"说与脂评"有一陋处"相通。</div></div>
+  <div class="person-card"><div class="p-name">金丰 <span class="p-stars">★</span></div><div class="p-school">小说理论</div><div class="p-tagline">"实者虚之，虚者实之"</div><div class="p-detail">《说岳全传序》。认为虚实结合、相互补充才能写好小说。</div></div>
+  <div class="person-card"><div class="p-name">黄越 <span class="p-stars">★</span></div><div class="p-school">小说理论</div><div class="p-tagline">小说可"无者造之而使有"</div><div class="p-detail">《第九才子书平鬼传序》。认识到艺术形象本是虚构，经过创造成为"有"。</div></div>
+</div>
+</div>
+</div>
+
+<!-- footer -->
+<div style="text-align:center;padding:24px 0;margin-top:20px;border-top:1px solid #d0e4f7">
+  <p style="font-size:12px;color:#7a9bcb">共收录 明代 44 位 + 清代 39 位 = 83 位批评家 · 基于《中国文学批评史新编》第二版下册</p>
+  <p style="font-size:12px;color:#7a9bcb;margin-top:4px">本书未设专章讨论书论和画论，建议参阅《中国书画理论史》《中国美学史》</p>
+</div>
+</div>
+
+<script>
+function filterGenre(era, genre, btn){
+  var parent = btn.closest('.era-section');
+  var tabs = parent.querySelectorAll('.genre-tab');
+  tabs.forEach(function(t){t.classList.remove('active');});
+  btn.classList.add('active');
+
+  var sections = parent.querySelectorAll('.genre-section');
+  sections.forEach(function(s){
+    var sGenre = s.getAttribute('data-genre');
+    s.classList.toggle('hidden', genre !== 'all' && sGenre !== genre);
+  });
+}
+</script>
+
+</body>
+</html>
