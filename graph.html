@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识图谱 · 中国文学批评史新编</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;margin:0;padding:0;overflow:hidden}
+body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:#f0f6ff;color:#1a202c;line-height:1.7}
+
+/* nav bar */
+.nav{position:fixed;top:0;left:0;right:0;height:44px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #d0e4f7;display:flex;align-items:center;padding:0 16px;z-index:100}
+.nav a{color:#2b6cb0;text-decoration:none;font-size:13px;font-weight:600}
+.nav .title{font-size:13px;color:#5a7a9a;margin-left:12px}
+.nav .controls{margin-left:auto;display:flex;gap:8px;align-items:center}
+.nav select{font-size:12px;padding:4px 8px;border-radius:6px;border:1px solid #d0e4f7;background:#fff;font-family:inherit}
+.nav .clear-btn{font-size:11px;padding:3px 10px;border-radius:6px;border:1px solid #d0e4f7;background:#fff;cursor:pointer;color:#5a7a9a}
+.nav .clear-btn:hover{background:#e8f4fd}
+
+/* tooltip */
+.tooltip{position:fixed;display:none;max-width:280px;background:rgba(255,255,255,0.95);border-radius:8px;padding:10px 14px;border:1px solid #d0e4f7;box-shadow:0 2px 12px rgba(74,144,217,0.1);z-index:200;pointer-events:none;font-size:12px}
+.tooltip .tt-name{font-weight:700;font-size:13px;color:#1a202c;margin-bottom:2px}
+.tooltip .tt-tagline{color:#2b6cb0;font-style:italic;margin-bottom:4px}
+.tooltip .tt-meta{color:#7a9bcb;font-size:11px}
+.tooltip .tt-stars{color:#f6ad55}
+
+/* side panel */
+.panel{position:fixed;top:44px;right:0;width:340px;bottom:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-left:1px solid #d0e4f7;overflow-y:auto;padding:20px;z-index:50;display:none}
+.panel.open{display:block}
+.panel .close{float:right;cursor:pointer;font-size:18px;color:#7a9bcb;line-height:1}
+.panel .pn{font-size:18px;font-weight:700;margin-bottom:4px}
+.panel .ps{font-size:12px;color:#f6ad55;margin-bottom:2px}
+.panel .pe{font-size:12px;color:#7a9bcb;margin-bottom:8px}
+.panel .pt{font-size:13px;font-style:italic;color:#2b6cb0;margin-bottom:10px;padding:8px 10px;background:#e8f4fd;border-radius:6px}
+.panel .pd{font-size:13px;color:#3a5a7a;line-height:1.7}
+.panel .pstar{font-size:16px;color:#f6ad55;margin-bottom:8px}
+
+/* legend */
+.legend{position:fixed;bottom:16px;left:16px;display:flex;gap:12px;font-size:11px;color:#7a9bcb;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:8px 14px;border-radius:8px;border:1px solid #d0e4f7;z-index:50}
+.legend-item{display:flex;align-items:center;gap:4px}
+.legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.legend-line{width:20px;height:2px;display:inline-block;background:#999}
+
+/* graph */
+#graph{position:fixed;top:44px;left:0;right:0;bottom:0;z-index:1}
+
+/* empty state */
+.empty-state{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:2;pointer-events:none}
+.empty-state p{font-size:14px;color:#7a7a7a}
+
+@media(max-width:640px){.panel{width:100%}.nav select{font-size:11px;padding:3px 6px}}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← 首页</a>
+  <span class="title">知识图谱（91个节点）</span>
+  <div class="controls">
+    <select id="filterEra"><option value="all">全部朝代</option><option value="明代">明代</option><option value="清代前中期">清代前中期</option></select>
+    <select id="filterStars"><option value="all">全部重要度</option><option value="3">★★★</option><option value="2">★★</option><option value="1">★</option></select>
+    <button class="clear-btn" id="resetBtn">重置视图</button>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip">
+  <div class="tt-name" id="ttName"></div>
+  <div class="tt-stars" id="ttStars"></div>
+  <div class="tt-tagline" id="ttTagline"></div>
+  <div class="tt-meta" id="ttMeta"></div>
+</div>
+
+<div class="panel" id="panel">
+  <span class="close" id="panelClose">✕</span>
+  <div class="pstar" id="pStars"></div>
+  <div class="pn" id="pName"></div>
+  <div class="ps" id="pSchool"></div>
+  <div class="pe" id="pEra"></div>
+  <div class="pt" id="pTagline"></div>
+  <div class="pd" id="pDetail"></div>
+</div>
+
+<div class="legend">
+  <span class="legend-item"><span class="legend-dot" style="background:#9b4b3e"></span>明代</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#4a7c59"></span>清代前中期</span>
+  <span class="legend-item"><span class="legend-line" style="background:#999"></span> 关联关系</span>
+</div>
+
+<div id="graph"></div>
+<div class="empty-state" id="emptyState"><p>无匹配节点，请调整筛选条件</p></div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+(function(){
+var graphEl = document.getElementById('graph');
+var tooltip = document.getElementById('tooltip');
+var panel = document.getElementById('panel');
+var emptyState = document.getElementById('emptyState');
+var filterEra = document.getElementById('filterEra');
+var filterStars = document.getElementById('filterStars');
+var resetBtn = document.getElementById('resetBtn');
+
+var graphData = {nodes:[], links:[]};
+var sim, svg, link, node, label;
+
+// load data
+d3.json('assets/knowledge-graph.json').then(function(data){
+  graphData = data;
+  initGraph();
+});
+
+function initGraph(){
+  var w = graphEl.clientWidth;
+  var h = graphEl.clientHeight;
+  if(w===0) w=800; if(h===0) h=600;
+
+  svg = d3.select('#graph').append('svg')
+    .attr('width', w).attr('height', h)
+    .style('cursor','grab');
+
+  var g = svg.append('g');
+
+  // zoom
+  svg.call(d3.zoom().scaleExtent([0.3,3]).on('zoom', function(e){
+    g.attr('transform', e.transform);
+  }));
+
+  var nodes = graphData.nodes.filter(function(n){ return n.type !== 'era'; });
+  var eras = graphData.nodes.filter(function(n){ return n.type === 'era'; });
+  var links = graphData.links;
+
+  // Add era nodes back for display but filter them from main graph
+  // Actually let's show era nodes as grouping - but D3 force doesn't do groups natively
+  // Let's keep it simple: show all nodes, but eras are large header nodes
+
+  // Build node lookup
+  var nodeMap = {};
+  graphData.nodes.forEach(function(n){ nodeMap[n.id] = n; });
+
+  // compute stars display
+  nodes.forEach(function(n){
+    n.starsDisplay = '★'.repeat(n.stars) + '☆'.repeat(3 - n.stars);
+  });
+
+  sim = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(function(d){return d.id;}).distance(120))
+    .force('charge', d3.forceManyBody().strength(-350))
+    .force('center', d3.forceCenter(w/2, h/2))
+    .force('collision', d3.forceCollide().radius(35));
+
+  // links
+  link = g.append('g').selectAll('line')
+    .data(links).join('line')
+    .attr('stroke', '#ccc').attr('stroke-width', 1.5).attr('stroke-opacity', 0.5);
+
+  // link labels
+  var linkLabel = g.append('g').selectAll('text')
+    .data(links).join('text')
+    .text(function(d){ return d.type; })
+    .attr('font-size', '9px').attr('fill', '#999')
+    .attr('text-anchor', 'middle').attr('dy', -4);
+
+  // nodes
+  var nodeG = g.append('g').selectAll('g')
+    .data(nodes).join('g').style('cursor','pointer');
+
+  node = nodeG.append('circle')
+    .attr('r', function(d){ return d.type==='school'?18:14; })
+    .attr('fill', function(d){ return d.color; })
+    .attr('stroke', '#fff').attr('stroke-width', 2);
+
+  label = nodeG.append('text')
+    .text(function(d){ return d.name; })
+    .attr('font-size', function(d){ return d.type==='school'?'11px':'10px'; })
+    .attr('fill', '#2d2d2d')
+    .attr('font-weight', function(d){ return d.type==='school'?'700':'500'; })
+    .attr('text-anchor', 'middle')
+    .attr('dy', function(d){ return (d.type==='school'?28:24); });
+
+  // highlight stars
+  var starG = nodeG.append('text')
+    .text(function(d){ return d.stars > 0 ? '★'.repeat(d.stars) : ''; })
+    .attr('font-size', '8px').attr('fill', '#b8893a')
+    .attr('text-anchor', 'middle')
+    .attr('dy', function(d){ return d.type==='school'?38:34; });
+
+  // hover
+  nodeG.on('mouseenter', function(e, d){
+    tooltip.style.display = 'block';
+    document.getElementById('ttName').textContent = d.name;
+    document.getElementById('ttStars').textContent = '★'.repeat(d.stars) + '☆'.repeat(3-d.stars);
+    document.getElementById('ttTagline').textContent = d.tagline || '';
+    document.getElementById('ttMeta').textContent = (d.era||'') + (d.school?' · '+d.school:'');
+  }).on('mousemove', function(e){
+    tooltip.style.left = (e.clientX + 16) + 'px';
+    tooltip.style.top = (e.clientY - 10) + 'px';
+  }).on('mouseleave', function(){
+    tooltip.style.display = 'none';
+  }).on('click', function(e, d){
+    showPanel(d);
+  });
+
+  // drag
+  nodeG.call(d3.drag()
+    .on('start', function(e,d){
+      if(!e.active) sim.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y;
+    })
+    .on('drag', function(e,d){
+      d.fx = e.x; d.fy = e.y;
+    })
+    .on('end', function(e,d){
+      if(!e.active) sim.alphaTarget(0);
+      d.fx = null; d.fy = null;
+    })
+  );
+
+  // tick
+  sim.on('tick', function(){
+    link.attr('x1', function(d){return d.source.x;})
+        .attr('y1', function(d){return d.source.y;})
+        .attr('x2', function(d){return d.target.x;})
+        .attr('y2', function(d){return d.target.y;});
+    linkLabel.attr('x', function(d){return (d.source.x+d.target.x)/2;})
+             .attr('y', function(d){return (d.source.y+d.target.y)/2;});
+    nodeG.attr('transform', function(d){return 'translate('+d.x+','+d.y+')';});
+  });
+
+  applyFilter();
+}
+
+function showPanel(d){
+  panel.classList.add('open');
+  document.getElementById('pName').textContent = d.name;
+  document.getElementById('pStars').textContent = '★'.repeat(d.stars) + '☆'.repeat(3-d.stars);
+  document.getElementById('pSchool').textContent = d.school ? '流派：'+d.school : '';
+  document.getElementById('pEra').textContent = '朝代：'+(d.era||'');
+  document.getElementById('pTagline').textContent = d.tagline ? '"'+d.tagline+'"' : '';
+  document.getElementById('pDetail').textContent = d.detail || '';
+}
+
+document.getElementById('panelClose').onclick = function(){
+  panel.classList.remove('open');
+};
+
+// filters
+filterEra.onchange = applyFilter;
+filterStars.onchange = applyFilter;
+
+function applyFilter(){
+  var era = filterEra.value;
+  var stars = filterStars.value;
+  var count = 0;
+
+  svg.selectAll('g g').each(function(d){
+    if(!d) return;
+    var show = true;
+    if(era !== 'all' && d.era !== era) show = false;
+    if(stars !== 'all' && d.stars != parseInt(stars)) show = false;
+    d3.select(this).style('display', show ? null : 'none');
+    if(show) count++;
+  });
+
+  // also hide related links when nodes hidden
+  link.each(function(d){
+    var show = true;
+    if(era !== 'all' && (d.source.era !== era || d.target.era !== era)) show = false;
+    if(stars !== 'all' && (d.source.stars != parseInt(stars) || d.target.stars != parseInt(stars))) show = false;
+    d3.select(this).style('display', show ? null : 'none');
+  });
+
+  emptyState.style.display = count === 0 ? 'block' : 'none';
+}
+
+resetBtn.onclick = function(){
+  filterEra.value = 'all';
+  filterStars.value = 'all';
+  applyFilter();
+  // reset positions
+  if(sim){
+    sim.nodes().forEach(function(d){
+      d.fx = null; d.fy = null;
+    });
+    sim.alpha(0.3).restart();
+  }
+};
+
+// resize
+window.addEventListener('resize', function(){
+  if(svg){
+    svg.attr('width', graphEl.clientWidth).attr('height', graphEl.clientHeight);
+  }
+});
+
+})();
+</script>
+</body>
+</html>

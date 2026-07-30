@@ -1,0 +1,22 @@
+{
+  "name": "wenxue-pipingshi",
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "framework": null,
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/graph", "dest": "/graph.html" },
+    { "src": "/review", "dest": "/review.html" },
+    { "src": "/interview", "dest": "/interview.html" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《中国文学批评史新编》学习伴侣</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:#edf4fc;color:#1a202c;line-height:1.7}
+.container{max-width:720px;margin:0 auto;padding:0 20px}
+
+/* ══ HERO COVER ══ */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:60px 24px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#1a365d 0%,#2b6cb0 35%,#4299e1 70%,#63b3ed 100%);
+}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 20% 30%,rgba(255,255,255,0.15) 0%,transparent 50%),
+             radial-gradient(ellipse at 80% 70%,rgba(255,255,255,0.08) 0%,transparent 40%);
+}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;
+  background:linear-gradient(transparent,#edf4fc);
+}
+
+/* dark overlay for text readability */
+.hero-content{
+  position:relative;z-index:2;background:rgba(0,0,0,0.15);
+  backdrop-filter:blur(8px);border-radius:24px;
+  padding:28px 32px;max-width:580px;width:100%;
+  border:1px solid rgba(255,255,255,0.12);
+}
+
+/* floating decorations */
+.floating{position:absolute;pointer-events:none;z-index:1}
+.floating:nth-child(1){top:8%;left:5%;animation:float 6s ease-in-out infinite}
+.floating:nth-child(2){top:15%;right:8%;animation:float 8s ease-in-out infinite 1s}
+.floating:nth-child(3){top:50%;left:3%;animation:float 7s ease-in-out infinite 0.5s}
+.floating:nth-child(4){top:40%;right:4%;animation:float 9s ease-in-out infinite 2s}
+.floating:nth-child(5){bottom:20%;left:10%;animation:float 6.5s ease-in-out infinite 1.5s}
+.floating:nth-child(6){bottom:15%;right:12%;animation:float 7.5s ease-in-out infinite 0.8s}
+
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+
+/* ── cute study mascot ── */
+.mascot-wrap{position:relative;z-index:2;margin-bottom:12px}
+.mascot{width:120px;height:120px;margin:0 auto;position:relative}
+
+/* ── encouraging message ── */
+.encourage{position:relative;z-index:2;margin-bottom:10px}
+.encourage-text{
+  font-size:22px;font-weight:700;color:#ffffff;
+  text-shadow:0 2px 8px rgba(0,0,0,0.2);
+  line-height:1.5;letter-spacing:1px;
+}
+.encourage-sub{
+  font-size:14px;color:rgba(255,255,255,0.9);margin-top:6px;
+  text-shadow:0 1px 4px rgba(0,0,0,0.15);
+}
+
+.hero h1{
+  font-size:26px;font-weight:700;color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,0.2);
+  line-height:1.3;margin-top:6px;
+}
+.hero .sub{
+  font-size:13px;color:rgba(255,255,255,0.75);margin-top:4px;
+}
+.hero .badge{
+  display:inline-block;padding:4px 14px;border-radius:20px;
+  font-size:11px;font-weight:600;background:rgba(255,255,255,0.15);color:#fff;
+  backdrop-filter:blur(8px);margin-top:4px;border:1px solid rgba(255,255,255,0.2);
+}
+
+/* entrance - always horizontal */
+.entrance{display:flex;gap:10px;margin-top:20px;justify-content:center;position:relative;z-index:2}
+.entrance a{text-decoration:none;color:inherit;flex:1;min-width:0}
+.entrance-card{
+  background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-radius:14px;
+  padding:18px 10px;border:1px solid rgba(255,255,255,0.3);
+  box-shadow:0 4px 20px rgba(0,0,0,0.1);transition:transform 0.25s,box-shadow 0.25s;text-align:center
+}
+.entrance-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,0.15)}
+.entrance-card .icon{font-size:28px;margin-bottom:4px}
+.entrance-card .name{font-size:14px;font-weight:700;color:#2b6cb0}
+.entrance-card .hint{font-size:11px;color:#5a7a9a;margin-top:2px}
+.entrance-card .count{font-size:10px;color:#8aaec8;margin-top:2px}
+
+.cta{margin-top:18px;position:relative;z-index:2}
+.cta-btn{
+  display:inline-block;padding:10px 32px;border-radius:30px;border:none;
+  background:#fff;color:#2b6cb0;font-size:14px;font-weight:700;cursor:pointer;
+  font-family:inherit;box-shadow:0 4px 16px rgba(0,0,0,0.12);
+  transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.18)}
+.cta-sub{font-size:11px;color:rgba(255,255,255,0.65);margin-top:6px}
+
+/* ══ INFO SECTION ══ */
+.info{margin:60px 0 40px}
+.info h2{
+  font-size:20px;color:#2b6cb0;text-align:center;margin-bottom:24px;
+  padding-bottom:14px;border-bottom:2px solid #d0e4f7;
+}
+.info h2::before{content:'📖 '}
+
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:20px 0}
+.stat-card{
+  text-align:center;padding:20px 12px;background:#fff;border-radius:14px;
+  border:1px solid #d0e4f7;box-shadow:0 2px 8px rgba(74,144,217,0.06);
+  transition:transform 0.2s;
+}
+.stat-card:hover{transform:translateY(-2px)}
+.stat-card .num{font-size:30px;font-weight:700;color:#2b6cb0;line-height:1}
+.stat-card .label{font-size:13px;color:#7a9bcb;margin-top:4px}
+.stat-card .icon-num{font-size:20px;margin-bottom:4px}
+
+.features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.feature{
+  background:#fff;border-radius:14px;padding:18px;border:1px solid #d0e4f7;box-shadow:0 2px 8px rgba(74,144,217,0.04);
+  transition:transform 0.2s;
+}
+.feature:hover{transform:translateY(-2px)}
+.feature h3{font-size:14px;font-weight:700;color:#2b6cb0;margin-bottom:4px}
+.feature p{font-size:12px;color:#5a7a9a;line-height:1.6}
+
+.info-list{list-style:none;padding:0;margin:16px 0}
+.info-list li{padding:8px 0;font-size:14px;border-bottom:1px solid #e8f0fa;color:#3a5a7a}
+.info-list li:last-child{border-bottom:none}
+.info-list li::before{content:"✓ ";color:#5b9bd5;font-weight:700}
+
+.ending{font-size:13px;color:#7a9bcb;text-align:center;margin-top:32px;line-height:1.8}
+
+footer{background:#2b6cb0;color:rgba(255,255,255,0.8);padding:24px 0;margin-top:40px;text-align:center;font-size:12px}
+footer p{margin-bottom:0}
+
+@media(max-width:640px){
+  .hero{min-height:90vh;padding:40px 16px;justify-content:flex-start;padding-top:60px}
+  .hero h1{font-size:22px}
+  .encourage-text{font-size:18px}
+  .hero-content{padding:20px 16px;border-radius:18px}
+  .mascot{width:90px;height:90px}
+  .entrance{gap:8px}
+  .entrance-card{padding:14px 6px}
+  .entrance-card .icon{font-size:22px}
+  .entrance-card .name{font-size:12px}
+  .entrance-card .hint{font-size:10px}
+  .entrance-card .count{font-size:9px}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .stat-card{padding:14px 8px}
+  .stat-card .num{font-size:24px}
+  .features{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+
+  <!-- floating decorations -->
+  <svg class="floating" width="40" height="40" viewBox="0 0 40 40" style="opacity:0.3"><polygon points="20,2 25,15 39,15 28,24 31,38 20,30 9,38 12,24 1,15 15,15" fill="#fff"/></svg>
+  <svg class="floating" width="30" height="30" viewBox="0 0 30 30" style="opacity:0.25"><circle cx="15" cy="15" r="13" fill="none" stroke="#fff" stroke-width="2"/><circle cx="15" cy="15" r="6" fill="#fff"/></svg>
+  <svg class="floating" width="36" height="36" viewBox="0 0 36 36" style="opacity:0.2"><polygon points="18,2 22,12 33,12 25,19 28,30 18,24 8,30 11,19 3,12 14,12" fill="#fff"/></svg>
+  <svg class="floating" width="24" height="24" viewBox="0 0 24 24" style="opacity:0.3"><circle cx="12" cy="12" r="11" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="#fff"/></svg>
+  <svg class="floating" width="28" height="28" viewBox="0 0 28 28" style="opacity:0.2"><path d="M14 2 L16 10 L24 10 L18 15 L20 23 L14 18 L8 23 L10 15 L4 10 L12 10 Z" fill="#fff"/></svg>
+  <svg class="floating" width="20" height="20" viewBox="0 0 20 20" style="opacity:0.35"><circle cx="10" cy="10" r="9" fill="none" stroke="#fff" stroke-width="2"/></svg>
+
+  <!-- cute book mascot -->
+  <div class="mascot-wrap">
+    <div class="mascot">
+      <svg viewBox="0 0 140 140" width="120" height="120">
+        <!-- body / book -->
+        <rect x="30" y="45" width="80" height="70" rx="8" fill="#fff" stroke="#5b9bd5" stroke-width="2.5"/>
+        <rect x="30" y="45" width="80" height="35" rx="8" fill="#e8f4fd" stroke="#5b9bd5" stroke-width="2.5"/>
+        <line x1="42" y1="55" x2="98" y2="55" stroke="#5b9bd5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="42" y1="63" x2="90" y2="63" stroke="#5b9bd5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="42" y1="71" x2="85" y2="71" stroke="#5b9bd5" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- face on book -->
+        <circle cx="58" cy="88" r="3" fill="#2b6cb0"/>
+        <circle cx="82" cy="88" r="3" fill="#2b6cb0"/>
+        <path d="M62 95 Q70 102 78 95" fill="none" stroke="#2b6cb0" stroke-width="2" stroke-linecap="round"/>
+        <!-- blush -->
+        <ellipse cx="50" cy="92" rx="6" ry="3" fill="#ffb3b3" opacity="0.5"/>
+        <ellipse cx="90" cy="92" rx="6" ry="3" fill="#ffb3b3" opacity="0.5"/>
+        <!-- hands -->
+        <circle cx="28" cy="80" r="6" fill="#fff" stroke="#5b9bd5" stroke-width="2"/>
+        <circle cx="112" cy="80" r="6" fill="#fff" stroke="#5b9bd5" stroke-width="2"/>
+        <!-- stars around -->
+        <text x="20" y="30" font-size="14" fill="#fff" opacity="0.7">&#9733;</text>
+        <text x="110" y="28" font-size="10" fill="#fff" opacity="0.5">&#9733;</text>
+        <text x="50" y="15" font-size="8" fill="#fff" opacity="0.4">&#9733;</text>
+        <!-- graduation cap -->
+        <path d="M55 42 L70 28 L85 42 L70 36 Z" fill="#2b6cb0"/>
+        <circle cx="70" cy="28" r="3" fill="#2b6cb0"/>
+        <line x1="70" y1="31" x2="70" y2="38" stroke="#2b6cb0" stroke-width="2"/>
+        <rect x="65" y="38" width="10" height="8" rx="2" fill="#2b6cb0"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <!-- encouraging message -->
+    <div class="encourage">
+      <div class="encourage-text">你已经读过的每一页书<br>都不会白费</div>
+      <div class="encourage-sub">你只是需要一个系统，把它们串联起来</div>
+    </div>
+
+    <div class="badge">《中国文学批评史新编》第二版·下册</div>
+    <h1>明代 · 清代前中期</h1>
+    <p class="sub">王运熙、顾易生主编 · 复旦大学出版社 · 推免面试备考</p>
+
+    <div class="entrance">
+      <a href="graph.html"><div class="entrance-card"><div class="icon">🗺️</div><div class="name">知识图谱</div><div class="hint">建立框架，看清全貌</div><div class="count">91 个节点</div></div></a>
+      <a href="review.html"><div class="entrance-card"><div class="icon">🔄</div><div class="name">闪卡复习</div><div class="hint">主动回忆，巩固记忆</div><div class="count">80 张卡片</div></div></a>
+      <a href="interview.html"><div class="entrance-card"><div class="icon">🎤</div><div class="name">面试模拟</div><div class="hint">练习输出，从容应对</div><div class="count">42 道题目</div></div></a>
+    </div>
+
+    <div class="cta">
+      <a href="#info" class="cta-btn">了解更多 →</a>
+      <div class="cta-sub">无需注册 · 无需付费 · 打开即用</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="info" id="info">
+
+  <h2>这本书我已经替你读完了</h2>
+
+  <div class="stats">
+    <div class="stat-card"><div class="icon-num">🗺️</div><div class="num">91</div><div class="label">知识图谱节点</div></div>
+    <div class="stat-card"><div class="icon-num">🃏</div><div class="num">80</div><div class="label">记忆闪卡</div></div>
+    <div class="stat-card"><div class="icon-num">🎤</div><div class="num">42</div><div class="label">面试预测题</div></div>
+  </div>
+
+  <ul class="info-list">
+    <li>91 个核心批评家与流派的知识图谱节点，重点已标好</li>
+    <li>80 道主动回忆闪卡，覆盖全部★★★高频考点</li>
+    <li>42 道面试预测题，每题附答题框架</li>
+    <li>4 条跨编专题线索（情景论流变 · 复古vs革新 · 戏曲理论成熟 · 词学中兴）</li>
+    <li>全部数据一次性加载，无需注册，无需登录</li>
+    <li>学习进度自动保存在浏览器中</li>
+  </ul>
+
+  <div class="features">
+    <div class="feature"><h3>🗺️ 知识图谱</h3><p>力导向图展示明代与清代所有流派、批评家及其关联关系。点击节点查看完整卡片，按朝代/流派/重要度筛选。</p></div>
+    <div class="feature"><h3>🔄 闪卡复习</h3><p>正面问题→思考→翻转看答案→自评记得/模糊/忘记。SM-2间隔重复算法自动安排复习时间。</p></div>
+    <div class="feature"><h3>🎤 面试模拟</h3><p>42道预测题覆盖全书95%以上考点。限时回答，查看答题框架。准备+回答双计时，模拟真实压力。</p></div>
+    <div class="feature"><h3>📚 四周计划</h3><p>第1周框架建立 → 第2周精读深挖 → 第3周专题串联 → 第4周输出训练。每天40-70分钟。</p></div>
+  </div>
+
+  <div class="ending">
+    <p>这个工具没有商业模式，没有增长策略。</p>
+    <p>它只是一个人为了一本书做的东西。</p>
+    <p>如果有人用了之后说"有用"，就可以了。</p>
+  </div>
+</div>
+</div>
+
+<footer><div class="container"><p>《中国文学批评史新编》（第二版·下册）学习伴侣 · 完全免费 · 无需注册</p></div></footer>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>面试模拟 · 中国文学批评史新编</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:#f0f6ff;color:#1a202c;line-height:1.6}
+
+.nav{height:44px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #d0e4f7;display:flex;align-items:center;padding:0 16px}
+.nav a{color:#2b6cb0;text-decoration:none;font-size:13px;font-weight:600}
+.nav .title{font-size:13px;color:#5a7a9a;margin-left:12px}
+.nav .right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.nav .qnum{font-size:12px;color:#7a9bcb}
+
+.container{max-width:640px;margin:0 auto;padding:20px 16px}
+
+/* timer */
+.timer-area{text-align:center;margin-bottom:20px}
+.timer{display:inline-block;font-size:42px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:2px;color:#2b6cb0;min-width:140px}
+.timer.running{color:#c0392b}
+.timer.warning{animation:blink 0.8s infinite}
+@keyframes blink{50%{opacity:0.3}}
+.timer-label{font-size:12px;color:#7a9bcb;margin-top:2px}
+
+/* question card */
+.qcard{background:#fff;border-radius:12px;border:1px solid #d0e4f7;box-shadow:0 2px 12px rgba(74,144,217,0.06);overflow:hidden}
+.qheader{padding:10px 16px;background:#e8f4fd;border-bottom:1px solid #d0e4f7;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.qheader .mode{padding:2px 8px;border-radius:6px;background:#fff;color:#2b6cb0;font-weight:600;border:1px solid #d0e4f7}
+.qbody{padding:24px 20px}
+.qbody .question{font-size:17px;font-weight:600;line-height:1.6;text-align:center}
+
+/* controls */
+.controls{display:flex;gap:8px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.ctrl-btn{padding:8px 20px;border-radius:8px;border:none;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity 0.15s}
+.ctrl-btn:hover{opacity:0.85}
+.ctrl-btn:disabled{cursor:default;opacity:0.4}
+.ctrl-btn.start{background:#2b6cb0;color:#fff}
+.ctrl-btn.start.pause{background:#ecc94b;color:#fff}
+.ctrl-btn.skip{background:#d0e4f7;color:#2b6cb0}
+.ctrl-btn.framework{background:#fff;color:#2b6cb0;border:1px solid #d0e4f7}
+
+/* framework */
+.framework-box{margin-top:16px;background:#e8f4fd;border-radius:8px;padding:16px;border:1px solid #d0e4f7;display:none}
+.framework-box.open{display:block}
+.framework-box .fw-label{font-size:11px;font-weight:700;color:#2b6cb0;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em}
+.framework-box .fw-content{font-size:13px;color:#3a5a7a;line-height:1.7}
+
+/* mode select */
+.mode-selector{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
+.mode-btn{padding:6px 16px;border-radius:6px;border:1px solid #d0e4f7;background:#fff;font-size:12px;cursor:pointer;font-family:inherit;color:#5a7a9a}
+.mode-btn.active{background:#2b6cb0;color:#fff;border-color:#2b6cb0}
+.mode-btn:hover:not(.active){background:#e8f4fd}
+
+/* progress dots */
+.dots{display:flex;justify-content:center;gap:6px;margin-bottom:16px}
+.dot{width:8px;height:8px;border-radius:50%;background:#e0ddd5}
+.dot.done{background:#4a7c59}
+.dot.current{background:#2b6cb0;transform:scale(1.3)}
+
+/* done screen */
+.done-screen{text-align:center;padding:40px 20px}
+.done-screen h2{font-size:22px;color:#2b6cb0;margin-bottom:8px}
+.done-screen p{font-size:14px;color:#7a9bcb;margin-bottom:6px}
+
+/* start screen */
+.start-screen{text-align:center;padding:40px 20px}
+.start-screen h2{font-size:20px;color:#2b6cb0;margin-bottom:12px}
+.start-screen p{font-size:14px;color:#5a7a9a;margin-bottom:6px}
+.start-screen .big-btn{margin-top:16px;padding:12px 36px;border-radius:10px;border:none;background:#2b6cb0;color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit}
+.start-screen .big-btn:hover{opacity:0.9}
+
+@media(max-width:640px){.timer{font-size:34px}.qbody .question{font-size:15px}.qbody{padding:20px 16px}}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← 首页</a>
+  <span class="title">面试模拟</span>
+  <div class="right"><span class="qnum" id="qNum">0/12</span></div>
+</div>
+
+<div class="container" id="app">
+  <!-- start screen -->
+  <div id="startScreen">
+    <div class="start-screen">
+      <h2>🎤 面试模拟训练</h2>
+      <p>42道预测题，覆盖全书95%以上考点</p>
+      <p style="font-size:12px;color:#7a7a7a">每道题：60秒准备 → 180秒回答 → 查看答题框架</p>
+      <button class="big-btn" id="startBtn">开始模拟面试</button>
+    </div>
+  </div>
+
+  <!-- question area -->
+  <div id="questionArea" style="display:none">
+    <div class="dots" id="dotsContainer"></div>
+
+    <div class="timer-area">
+      <div class="timer" id="timerDisplay">01:00</div>
+      <div class="timer-label" id="timerPhase">准备阶段</div>
+    </div>
+
+    <div class="qcard">
+      <div class="qheader">
+        <span class="mode" id="modeLabel">结构化面试</span>
+        <span id="qInfo"></span>
+      </div>
+      <div class="qbody">
+        <div class="question" id="questionText"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="ctrl-btn start" id="phaseBtn">开始准备</button>
+      <button class="ctrl-btn skip" id="skipBtn">下一题</button>
+      <button class="ctrl-btn framework" id="fwBtn">查看答题框架</button>
+    </div>
+
+    <div class="framework-box" id="fwBox">
+      <div class="fw-label">答题框架</div>
+      <div class="fw-content" id="fwContent"></div>
+    </div>
+  </div>
+
+  <!-- done screen -->
+  <div id="doneScreen" style="display:none">
+    <div class="done-screen">
+      <h2>🎉 全部完成！</h2>
+      <p>你已经完成了42道面试模拟题。</p>
+      <p style="font-size:12px;color:#7a7a7a">建议你反复练习，直到每道题都能流畅说出框架。</p>
+      <button class="big-btn" id="restartBtn" style="margin-top:16px;padding:12px 36px;border-radius:10px;border:none;background:#2b6cb0;color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit">重新开始</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+var questions = [];
+var currentIdx = 0;
+var phase = 'idle'; // idle | prep | answer | done
+var timer = null;
+var seconds = 0;
+
+var startScreen = document.getElementById('startScreen');
+var questionArea = document.getElementById('questionArea');
+var doneScreen = document.getElementById('doneScreen');
+var questionText = document.getElementById('questionText');
+var timerDisplay = document.getElementById('timerDisplay');
+var timerPhase = document.getElementById('timerPhase');
+var phaseBtn = document.getElementById('phaseBtn');
+var skipBtn = document.getElementById('skipBtn');
+var fwBtn = document.getElementById('fwBtn');
+var fwBox = document.getElementById('fwBox');
+var fwContent = document.getElementById('fwContent');
+var dotsContainer = document.getElementById('dotsContainer');
+var qNum = document.getElementById('qNum');
+var qInfo = document.getElementById('qInfo');
+var startBtn = document.getElementById('startBtn');
+var restartBtn = document.getElementById('restartBtn');
+
+// load data
+fetch('assets/interviews.json').then(function(r){return r.json();}).then(function(data){
+  questions = data;
+  startBtn.disabled = false;
+  startBtn.textContent = '开始模拟面试';
+});
+
+startBtn.onclick = function(){start();};
+restartBtn.onclick = function(){start();};
+
+function start(){
+  currentIdx = 0;
+  fwBox.classList.remove('open');
+  startScreen.style.display = 'none';
+  doneScreen.style.display = 'none';
+  questionArea.style.display = 'block';
+  showQuestion();
+  resetTimer();
+  phase = 'idle';
+  timerDisplay.textContent = '01:00';
+  timerPhase.textContent = '准备·60秒';
+  phaseBtn.textContent = '开始准备';
+  phaseBtn.className = 'ctrl-btn start';
+  phaseBtn.disabled = false;
+  skipBtn.disabled = false;
+}
+
+function showQuestion(){
+  if(currentIdx >= questions.length){
+    questionArea.style.display = 'none';
+    doneScreen.style.display = 'block';
+    return;
+  }
+  var q = questions[currentIdx];
+  questionText.textContent = q.question;
+  qNum.textContent = (currentIdx+1) + '/' + questions.length;
+  qInfo.textContent = '★★★' + ' · ' + (q.era||'');
+  fwContent.textContent = q.framework;
+  fwBox.classList.remove('open');
+
+  // dots
+  dotsContainer.innerHTML = '';
+  questions.forEach(function(_, i){
+    var dot = document.createElement('span');
+    dot.className = 'dot';
+    if(i < currentIdx) dot.classList.add('done');
+    if(i === currentIdx) dot.classList.add('current');
+    dotsContainer.appendChild(dot);
+  });
+}
+
+function resetTimer(){
+  if(timer) clearInterval(timer);
+  timer = null;
+}
+
+function startPrep(){
+  resetTimer();
+  phase = 'prep';
+  seconds = 60;
+  timerDisplay.textContent = formatTime(seconds);
+  timerPhase.textContent = '准备阶段';
+  phaseBtn.textContent = '开始回答';
+  phaseBtn.className = 'ctrl-btn start';
+  timerDisplay.className = 'timer';
+  timer = setInterval(function(){
+    seconds--;
+    timerDisplay.textContent = formatTime(seconds);
+    if(seconds <= 10) timerDisplay.classList.add('warning');
+    if(seconds <= 0){
+      clearInterval(timer);
+      startAnswer();
+    }
+  }, 1000);
+}
+
+function startAnswer(){
+  resetTimer();
+  phase = 'answer';
+  seconds = 180;
+  timerDisplay.textContent = formatTime(seconds);
+  timerPhase.textContent = '回答阶段';
+  phaseBtn.textContent = '暂停';
+  phaseBtn.className = 'ctrl-btn start pause';
+  timerDisplay.className = 'timer running';
+  timer = setInterval(function(){
+    seconds--;
+    timerDisplay.textContent = formatTime(seconds);
+    if(seconds <= 30) timerDisplay.classList.add('warning');
+    if(seconds <= 0){
+      clearInterval(timer);
+      phase = 'done';
+      timerPhase.textContent = '时间到';
+      phaseBtn.textContent = '下一题';
+      phaseBtn.className = 'ctrl-btn start';
+      timerDisplay.className = 'timer';
+    }
+  }, 1000);
+}
+
+function formatTime(s){
+  var m = Math.floor(s/60);
+  var sec = s % 60;
+  return String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
+}
+
+phaseBtn.onclick = function(){
+  if(phase === 'idle'){
+    startPrep();
+  }else if(phase === 'prep'){
+    clearInterval(timer);
+    startAnswer();
+  }else if(phase === 'answer'){
+    // pause/resume
+    if(timer){
+      clearInterval(timer);
+      timer = null;
+      phaseBtn.textContent = '继续';
+      phaseBtn.className = 'ctrl-btn start';
+    }else{
+      timer = setInterval(function(){
+        seconds--;
+        timerDisplay.textContent = formatTime(seconds);
+        if(seconds <= 30) timerDisplay.classList.add('warning');
+        if(seconds <= 0){
+          clearInterval(timer);
+          timer = null;
+          phase = 'done';
+          timerPhase.textContent = '时间到';
+          phaseBtn.textContent = '下一题';
+          phaseBtn.className = 'ctrl-btn start';
+          timerDisplay.className = 'timer';
+        }
+      }, 1000);
+      phaseBtn.textContent = '暂停';
+      phaseBtn.className = 'ctrl-btn start pause';
+    }
+  }else if(phase === 'done'){
+    nextQuestion();
+  }
+};
+
+skipBtn.onclick = function(){
+  if(confirm('跳过这道题吗？')){
+    nextQuestion();
+  }
+};
+
+function nextQuestion(){
+  resetTimer();
+  currentIdx++;
+  phase = 'idle';
+  showQuestion();
+  timerDisplay.textContent = '01:00';
+  timerPhase.textContent = '准备·60秒';
+  phaseBtn.textContent = '开始准备';
+  phaseBtn.className = 'ctrl-btn start';
+  phaseBtn.disabled = false;
+  timerDisplay.className = 'timer';
+}
+
+fwBtn.onclick = function(){
+  fwBox.classList.toggle('open');
+};
+
+})();
+</script>
+</body>
+</html>
