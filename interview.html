@@ -17,14 +17,6 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 
 .container{max-width:640px;margin:0 auto;padding:20px 16px}
 
-/* timer */
-.timer-area{text-align:center;margin-bottom:20px}
-.timer{display:inline-block;font-size:42px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:2px;color:#2b6cb0;min-width:140px}
-.timer.running{color:#c0392b}
-.timer.warning{animation:blink 0.8s infinite}
-@keyframes blink{50%{opacity:0.3}}
-.timer-label{font-size:12px;color:#7a9bcb;margin-top:2px}
-
 /* question card */
 .qcard{background:#fff;border-radius:12px;border:1px solid #d0e4f7;box-shadow:0 2px 12px rgba(74,144,217,0.06);overflow:hidden}
 .qheader{padding:10px 16px;background:#e8f4fd;border-bottom:1px solid #d0e4f7;display:flex;justify-content:space-between;align-items:center;font-size:12px}
@@ -72,7 +64,31 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 .start-screen .big-btn{margin-top:16px;padding:12px 36px;border-radius:10px;border:none;background:#2b6cb0;color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit}
 .start-screen .big-btn:hover{opacity:0.9}
 
-@media(max-width:640px){.timer{font-size:34px}.qbody .question{font-size:15px}.qbody{padding:20px 16px}}
+/* self rating */
+.self-rate{margin-top:18px;background:#fff;border-radius:12px;border:1px solid #d0e4f7;padding:14px 16px;text-align:center}
+.rate-label{font-size:13px;color:#5a7a9a;margin-bottom:10px;font-weight:600}
+.rate-btns{display:flex;gap:10px;justify-content:center}
+.rate-btn{padding:10px 22px;border-radius:10px;border:none;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity 0.15s}
+.rate-btn:hover{opacity:0.85}
+.rate-good{background:#2b6cb0;color:#fff}
+.rate-ok{background:#ecc94b;color:#fff}
+.rate-bad{background:#c0392b;color:#fff}
+
+/* group result */
+.group-box{margin-top:18px;text-align:left}
+.group-row{background:#fff;border-radius:12px;border:1px solid #d0e4f7;padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.group-row .group-icon{font-size:22px}
+.group-row .group-info{flex:1;min-width:0}
+.group-row .group-name{font-size:13px;font-weight:700;margin-bottom:4px}
+.group-row .group-list{font-size:11px;color:#7a9bcb;line-height:1.6;max-height:80px;overflow-y:auto;word-break:break-all}
+.group-row .group-list:empty::after{content:'（暂无）';color:#c0d4e8}
+.group-mastered .group-name{color:#2b6cb0}
+.group-ok .group-name{color:#b7791f}
+.group-bad .group-name{color:#c0392b}
+.group-btn{padding:8px 16px;border-radius:8px;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;background:#d0e4f7;color:#2b6cb0;white-space:nowrap}
+.group-btn:hover{opacity:0.85}
+
+@media(max-width:640px){.qbody .question{font-size:15px}.qbody{padding:20px 16px}}
 </style>
 </head>
 <body>
@@ -95,7 +111,7 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
     <div class="start-screen">
       <h2>🎤 面试模拟训练</h2>
       <p id="startDesc">38道预测题，覆盖上册全部考点</p>
-      <p style="font-size:12px;color:#7a9bcb">每道题：60秒准备 → 180秒回答 → 查看答题框架</p>
+      <p style="font-size:12px;color:#7a9bcb">回答后自评掌握程度 → 一轮结束自动分组 → 针对薄弱题重新考你</p>
       <button class="big-btn" id="startBtn">开始模拟面试</button>
     </div>
   </div>
@@ -103,11 +119,6 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
   <!-- question area -->
   <div id="questionArea" style="display:none">
     <div class="dots" id="dotsContainer"></div>
-
-    <div class="timer-area">
-      <div class="timer" id="timerDisplay">01:00</div>
-      <div class="timer-label" id="timerPhase">准备阶段</div>
-    </div>
 
     <div class="qcard">
       <div class="qheader">
@@ -120,7 +131,6 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
     </div>
 
     <div class="controls">
-      <button class="ctrl-btn start" id="phaseBtn">开始准备</button>
       <button class="ctrl-btn skip" id="skipBtn">下一题</button>
       <button class="ctrl-btn framework" id="fwBtn">查看答题框架</button>
     </div>
@@ -129,15 +139,51 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
       <div class="fw-label">答题框架</div>
       <div class="fw-content" id="fwContent"></div>
     </div>
+
+    <div class="self-rate" id="selfRate">
+      <div class="rate-label">这道题你掌握得怎么样？</div>
+      <div class="rate-btns">
+        <button class="rate-btn rate-good" id="rateGood">✓ 掌握</button>
+        <button class="rate-btn rate-ok" id="rateOk">△ 模糊</button>
+        <button class="rate-btn rate-bad" id="rateBad">✗ 忘记</button>
+      </div>
+    </div>
   </div>
 
-  <!-- done screen -->
-  <div id="doneScreen" style="display:none">
-    <div class="done-screen">
-      <h2>🎉 全部完成！</h2>
-      <p id="doneDesc">你已经完成了本册全部面试模拟题。</p>
-      <p style="font-size:12px;color:#7a7a7a">建议你反复练习，直到每道题都能流畅说出框架。</p>
-      <button class="big-btn" id="restartBtn" style="margin-top:16px;padding:12px 36px;border-radius:10px;border:none;background:#2b6cb0;color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit">重新开始</button>
+  <!-- round result / group screen -->
+  <div id="resultScreen" style="display:none">
+    <div class="start-screen">
+      <h2>📊 本轮完成！</h2>
+      <p id="roundSummary">你已经完成了本轮的面试练习。</p>
+
+      <div class="group-box" id="groupBox">
+        <div class="group-row group-mastered">
+          <div class="group-icon">✅</div>
+          <div class="group-info">
+            <div class="group-name">掌握的题目</div>
+            <div class="group-list" id="groupMasteredList"></div>
+          </div>
+          <button class="group-btn" data-group="mastered">重考这组</button>
+        </div>
+        <div class="group-row group-ok">
+          <div class="group-icon">🔶</div>
+          <div class="group-info">
+            <div class="group-name">模糊的题目</div>
+            <div class="group-list" id="groupOkList"></div>
+          </div>
+          <button class="group-btn" data-group="ok">重考这组</button>
+        </div>
+        <div class="group-row group-bad">
+          <div class="group-icon">🔴</div>
+          <div class="group-info">
+            <div class="group-name">忘记的题目</div>
+            <div class="group-list" id="groupBadList"></div>
+          </div>
+          <button class="group-btn" data-group="bad">重考这组</button>
+        </div>
+      </div>
+
+      <button class="big-btn" id="restartBtn" style="margin-top:20px;padding:12px 36px;border-radius:10px;border:none;background:#2b6cb0;color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit">重新开始完整一轮</button>
     </div>
   </div>
 </div>
@@ -146,17 +192,13 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 (function(){
 var questions = [];
 var currentIdx = 0;
-var phase = 'idle'; // idle | prep | answer | done
-var timer = null;
-var seconds = 0;
+var currentQueue = []; // 当前这一轮的题目顺序（可能是完整一轮，也可能是某一组的重考）
+var ratings = {}; // question.id -> 'good'|'ok'|'bad'
 
 var startScreen = document.getElementById('startScreen');
 var questionArea = document.getElementById('questionArea');
-var doneScreen = document.getElementById('doneScreen');
+var resultScreen = document.getElementById('resultScreen');
 var questionText = document.getElementById('questionText');
-var timerDisplay = document.getElementById('timerDisplay');
-var timerPhase = document.getElementById('timerPhase');
-var phaseBtn = document.getElementById('phaseBtn');
 var skipBtn = document.getElementById('skipBtn');
 var fwBtn = document.getElementById('fwBtn');
 var fwBox = document.getElementById('fwBox');
@@ -168,6 +210,14 @@ var startBtn = document.getElementById('startBtn');
 var restartBtn = document.getElementById('restartBtn');
 var versionSelect = document.getElementById('versionSelect');
 var startDesc = document.getElementById('startDesc');
+var selfRate = document.getElementById('selfRate');
+var rateGood = document.getElementById('rateGood');
+var rateOk = document.getElementById('rateOk');
+var rateBad = document.getElementById('rateBad');
+var roundSummary = document.getElementById('roundSummary');
+var groupMasteredList = document.getElementById('groupMasteredList');
+var groupOkList = document.getElementById('groupOkList');
+var groupBadList = document.getElementById('groupBadList');
 
 var currentVersion = 'shang';
 
@@ -181,12 +231,13 @@ function loadQuestions(version){
     startBtn.disabled = false;
     startBtn.textContent = '开始模拟面试';
     // reset UI
-    resetTimer();
     currentIdx = 0;
+    currentQueue = [];
+    ratings = {};
     fwBox.classList.remove('open');
     startScreen.style.display = 'block';
     questionArea.style.display = 'none';
-    doneScreen.style.display = 'none';
+    resultScreen.style.display = 'none';
     qNum.textContent = '0/' + questions.length;
   });
 }
@@ -197,42 +248,62 @@ versionSelect.onchange = function(){
   loadQuestions(versionSelect.value);
 };
 
-startBtn.onclick = function(){start();};
-restartBtn.onclick = function(){start();};
+startBtn.onclick = function(){startFullRound();};
+restartBtn.onclick = function(){startFullRound();};
 
-function start(){
+function startFullRound(){
+  currentQueue = questions.slice();
+  shuffle(currentQueue);
+  ratings = {};
   currentIdx = 0;
   fwBox.classList.remove('open');
   startScreen.style.display = 'none';
-  doneScreen.style.display = 'none';
+  resultScreen.style.display = 'none';
   questionArea.style.display = 'block';
   showQuestion();
-  resetTimer();
-  phase = 'idle';
-  timerDisplay.textContent = '01:00';
-  timerPhase.textContent = '准备·60秒';
-  phaseBtn.textContent = '开始准备';
-  phaseBtn.className = 'ctrl-btn start';
-  phaseBtn.disabled = false;
-  skipBtn.disabled = false;
+}
+
+function startGroup(group){
+  // 重考某一组：已评过该组评分的那批题目
+  var ids = Object.keys(ratings).filter(function(id){
+    return ratings[id] === group;
+  });
+  currentQueue = questions.filter(function(q){ return ids.indexOf(q.id) >= 0; });
+  if(currentQueue.length === 0) return;
+  shuffle(currentQueue);
+  currentIdx = 0;
+  fwBox.classList.remove('open');
+  resultScreen.style.display = 'none';
+  questionArea.style.display = 'block';
+  showQuestion();
+}
+
+function shuffle(arr){
+  for(var i = arr.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
 }
 
 function showQuestion(){
-  if(currentIdx >= questions.length){
+  if(currentIdx >= currentQueue.length){
+    // 本轮结束 → 显示分组结果
     questionArea.style.display = 'none';
-    doneScreen.style.display = 'block';
+    resultScreen.style.display = 'block';
+    showGroupResult();
     return;
   }
-  var q = questions[currentIdx];
+  var q = currentQueue[currentIdx];
   questionText.textContent = q.question;
-  qNum.textContent = (currentIdx+1) + '/' + questions.length;
-  qInfo.textContent = '★★★' + ' · ' + (q.era||'');
+  qNum.textContent = (currentIdx+1) + '/' + currentQueue.length;
+  qInfo.textContent = '★★★' + ' · ' + (q.era||'') + (ratings[q.id] ? ' · 本轮自评：' + ratingLabel(ratings[q.id]) : '');
   fwContent.textContent = q.framework;
   fwBox.classList.remove('open');
+  selfRate.style.display = 'block';
 
   // dots
   dotsContainer.innerHTML = '';
-  questions.forEach(function(_, i){
+  currentQueue.forEach(function(_, i){
     var dot = document.createElement('span');
     dot.className = 'dot';
     if(i < currentIdx) dot.classList.add('done');
@@ -241,119 +312,60 @@ function showQuestion(){
   });
 }
 
-function resetTimer(){
-  if(timer) clearInterval(timer);
-  timer = null;
+function ratingLabel(r){
+  if(r === 'good') return '掌握';
+  if(r === 'ok') return '模糊';
+  return '忘记';
 }
 
-function startPrep(){
-  resetTimer();
-  phase = 'prep';
-  seconds = 60;
-  timerDisplay.textContent = formatTime(seconds);
-  timerPhase.textContent = '准备阶段';
-  phaseBtn.textContent = '开始回答';
-  phaseBtn.className = 'ctrl-btn start';
-  timerDisplay.className = 'timer';
-  timer = setInterval(function(){
-    seconds--;
-    timerDisplay.textContent = formatTime(seconds);
-    if(seconds <= 10) timerDisplay.classList.add('warning');
-    if(seconds <= 0){
-      clearInterval(timer);
-      startAnswer();
-    }
-  }, 1000);
+function rate(r){
+  var q = currentQueue[currentIdx];
+  ratings[q.id] = r;
+  currentIdx++;
+  showQuestion();
 }
 
-function startAnswer(){
-  resetTimer();
-  phase = 'answer';
-  seconds = 180;
-  timerDisplay.textContent = formatTime(seconds);
-  timerPhase.textContent = '回答阶段';
-  phaseBtn.textContent = '暂停';
-  phaseBtn.className = 'ctrl-btn start pause';
-  timerDisplay.className = 'timer running';
-  timer = setInterval(function(){
-    seconds--;
-    timerDisplay.textContent = formatTime(seconds);
-    if(seconds <= 30) timerDisplay.classList.add('warning');
-    if(seconds <= 0){
-      clearInterval(timer);
-      phase = 'done';
-      timerPhase.textContent = '时间到';
-      phaseBtn.textContent = '下一题';
-      phaseBtn.className = 'ctrl-btn start';
-      timerDisplay.className = 'timer';
-    }
-  }, 1000);
-}
-
-function formatTime(s){
-  var m = Math.floor(s/60);
-  var sec = s % 60;
-  return String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
-}
-
-phaseBtn.onclick = function(){
-  if(phase === 'idle'){
-    startPrep();
-  }else if(phase === 'prep'){
-    clearInterval(timer);
-    startAnswer();
-  }else if(phase === 'answer'){
-    // pause/resume
-    if(timer){
-      clearInterval(timer);
-      timer = null;
-      phaseBtn.textContent = '继续';
-      phaseBtn.className = 'ctrl-btn start';
-    }else{
-      timer = setInterval(function(){
-        seconds--;
-        timerDisplay.textContent = formatTime(seconds);
-        if(seconds <= 30) timerDisplay.classList.add('warning');
-        if(seconds <= 0){
-          clearInterval(timer);
-          timer = null;
-          phase = 'done';
-          timerPhase.textContent = '时间到';
-          phaseBtn.textContent = '下一题';
-          phaseBtn.className = 'ctrl-btn start';
-          timerDisplay.className = 'timer';
-        }
-      }, 1000);
-      phaseBtn.textContent = '暂停';
-      phaseBtn.className = 'ctrl-btn start pause';
-    }
-  }else if(phase === 'done'){
-    nextQuestion();
-  }
-};
+rateGood.onclick = function(){rate('good');};
+rateOk.onclick = function(){rate('ok');};
+rateBad.onclick = function(){rate('bad');};
 
 skipBtn.onclick = function(){
   if(confirm('跳过这道题吗？')){
-    nextQuestion();
+    currentIdx++;
+    showQuestion();
   }
 };
-
-function nextQuestion(){
-  resetTimer();
-  currentIdx++;
-  phase = 'idle';
-  showQuestion();
-  timerDisplay.textContent = '01:00';
-  timerPhase.textContent = '准备·60秒';
-  phaseBtn.textContent = '开始准备';
-  phaseBtn.className = 'ctrl-btn start';
-  phaseBtn.disabled = false;
-  timerDisplay.className = 'timer';
-}
 
 fwBtn.onclick = function(){
   fwBox.classList.toggle('open');
 };
+
+function showGroupResult(){
+  var mastered = [];
+  var ok = [];
+  var bad = [];
+  questions.forEach(function(q){
+    if(ratings[q.id] === 'good') mastered.push(q);
+    else if(ratings[q.id] === 'ok') ok.push(q);
+    else if(ratings[q.id] === 'bad') bad.push(q);
+  });
+  roundSummary.textContent = '本轮共 ' + questions.length + ' 题 · 掌握 ' + mastered.length + ' 题 · 模糊 ' + ok.length + ' 题 · 忘记 ' + bad.length + ' 题';
+
+  groupMasteredList.textContent = mastered.map(function(q){ return q.question.slice(0, 22) + (q.question.length>22?'…':''); }).join('；');
+  groupOkList.textContent = ok.map(function(q){ return q.question.slice(0, 22) + (q.question.length>22?'…':''); }).join('；');
+  groupBadList.textContent = bad.map(function(q){ return q.question.slice(0, 22) + (q.question.length>22?'…':''); }).join('；');
+
+  // 绑定重考按钮
+  var btns = document.querySelectorAll('.group-btn');
+  btns.forEach(function(btn){
+    btn.onclick = function(){
+      var g = btn.getAttribute('data-group');
+      var ids = Object.keys(ratings).filter(function(id){ return ratings[id] === g; });
+      if(ids.length === 0){ alert('这组暂时没有题目'); return; }
+      startGroup(g);
+    };
+  });
+}
 
 })();
 </script>
