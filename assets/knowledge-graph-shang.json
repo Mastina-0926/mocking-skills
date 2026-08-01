@@ -1,0 +1,966 @@
+{
+  "nodes": [
+    {
+      "id": "xian-qin-lianghan",
+      "name": "先秦两汉",
+      "type": "era",
+      "stars": 0,
+      "school": "",
+      "tagline": "中国文学批评的源头",
+      "detail": "先秦诸子与两汉经学确立了文学批评的基本格局：儒家诗教重教化，道家崇尚自然，“诗言志”成为千年诗学纲领。",
+      "era": "先秦两汉",
+      "color": "#34495e"
+    },
+    {
+      "id": "kongzi",
+      "name": "孔子",
+      "type": "person",
+      "stars": 3,
+      "school": "儒家",
+      "tagline": "“思无邪”“兴观群怨”",
+      "detail": "《论语》中的文学观。提出“诗可以兴，可以观，可以群，可以怨”；“思无邪”；主张文质彬彬，“文犹质也，质犹文也”。对文学的社会作用、内容形式关系提出系统看法，是中国文学批评的源头。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "mengzi",
+      "name": "孟子",
+      "type": "person",
+      "stars": 3,
+      "school": "儒家",
+      "tagline": "“知言养气”“以意逆志”",
+      "detail": "提出“知言养气”说——批评者需有深厚的道德修养；“以意逆志”——以读者之意逆作者之志的批评方法；“知人论世”——联系作者身世和时代背景理解作品。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "xunzi",
+      "name": "荀子",
+      "type": "person",
+      "stars": 2,
+      "school": "儒家",
+      "tagline": "重视《诗》《乐》的政治教化作用",
+      "detail": "肯定文艺的政治教化功能，强调“诗言志”的传统。《荀子·乐论》与《礼记·乐记》相关。主张“文”为明道服务。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "laozi",
+      "name": "老子",
+      "type": "person",
+      "stars": 2,
+      "school": "道家",
+      "tagline": "“大音希声，大象无形”",
+      "detail": "提出“大音希声”“大象无形”等概念，崇尚自然无为的美学理想，反对过分雕琢。对后世“自然”“神韵”等理论有深远影响。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "zhuangzi",
+      "name": "庄子",
+      "type": "person",
+      "stars": 3,
+      "school": "道家",
+      "tagline": "“得意忘言”“虚静”",
+      "detail": "《庄子》提出“得意忘言”——言与意的关系；“虚静”——创作与批评的精神状态；“天籁”“神遇”等概念。对文学批评的“意境”“神韵”理论有重大影响。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "maoshi-xu",
+      "name": "《毛诗序》",
+      "type": "person",
+      "stars": 3,
+      "school": "《诗经》批评",
+      "tagline": "“诗言志”“美刺”说",
+      "detail": "汉代《诗经》研究的纲领性文献。提出“诗者，志之所之也，在心为志，发言为诗”；“情动于中而形于言”；“六义”说（风雅颂赋比兴）；“变风变雅”说；强调诗歌美刺教化作用。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "sima-qian",
+      "name": "司马迁",
+      "type": "person",
+      "stars": 3,
+      "school": "史学家",
+      "tagline": "“发愤著书”说",
+      "detail": "《史记·太史公自序》《报任安书》提出“发愤著书”说——伟大作品多产生于作者遭受困厄愤懑之时。对后世“不平则鸣”“穷而后工”等理论有深远影响。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "yang-xiong",
+      "name": "扬雄",
+      "type": "person",
+      "stars": 2,
+      "school": "汉代辞赋家",
+      "tagline": "“诗人之赋丽以则”",
+      "detail": "提出赋论：“诗人之赋丽以则，辞人之赋丽以淫”——区分诗人之赋与辞人之赋。晚年悔其少作，视辞赋为“雕虫篆刻”。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "ban-gu",
+      "name": "班固",
+      "type": "person",
+      "stars": 2,
+      "school": "史学家",
+      "tagline": "《汉书·艺文志》中的文学观念",
+      "detail": "《汉书·艺文志》是中国最早的目录学著作，其“诗赋略”反映了当时的文学分类观念。论屈原《离骚》“露才扬己”，与王逸有争论。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "wang-chong",
+      "name": "王充",
+      "type": "person",
+      "stars": 2,
+      "school": "思想家",
+      "tagline": "反对“虚妄之文”，主张“文为世用”",
+      "detail": "《论衡》批判当时“虚妄之言”，主张文章要真实有用——“文为世用”。重视文章的真理性、实用性，反对华而不实。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "wang-yi",
+      "name": "王逸",
+      "type": "person",
+      "stars": 2,
+      "school": "楚辞学者",
+      "tagline": "《楚辞章句》——反驳班固",
+      "detail": "《楚辞章句序》为屈原辩护，反驳班固对屈原的批评，高度评价屈原“忠贞”精神与《离骚》的浪漫想象。",
+      "era": "先秦两汉",
+      "color": "#8e44ad"
+    },
+    {
+      "id": "wei-jin-nanbeichao",
+      "name": "魏晋南北朝",
+      "type": "era",
+      "stars": 0,
+      "school": "",
+      "tagline": "文学的自觉时代",
+      "detail": "曹丕《典论·论文》标志文学批评走向自觉。陆机《文赋》、刘勰《文心雕龙》、钟嵘《诗品》相继问世，文学理论走向体系化。",
+      "era": "魏晋南北朝",
+      "color": "#34495e"
+    },
+    {
+      "id": "cao-pi",
+      "name": "曹丕",
+      "type": "person",
+      "stars": 3,
+      "school": "建安文学",
+      "tagline": "《典论·论文》——“文以气为主”",
+      "detail": "中国文学批评史上第一篇文学专论。“文以气为主”——作家的气质才性决定作品风格；“四科八体”文体论（奏议宜雅、书论宜理、铭诔尚实、诗赋欲丽）；“经国之大业，不朽之盛事”——提高文学地位；反对“文人相轻”。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "lu-ji",
+      "name": "陆机",
+      "type": "person",
+      "stars": 3,
+      "school": "西晋",
+      "tagline": "《文赋》——“诗缘情而绮靡”",
+      "detail": "《文赋》是中国文学批评史上第一篇完整的文学创作论。“诗缘情而绮靡，赋体物而浏亮”——提出诗歌抒情特征；论述构思过程：“精骛八极，心游万仞”；“立片言而居要”的警句理论；对文体特征作了细致分析。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "zhi-yu",
+      "name": "挚虞",
+      "type": "person",
+      "stars": 2,
+      "school": "西晋",
+      "tagline": "《文章流别论》——最早的文章总集分类批评",
+      "detail": "编纂《文章流别集》并作《文章流别论》，对不同文体的性质和源流进行辨析，是最早的文体分类批评著作。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "ge-hong",
+      "name": "葛洪",
+      "type": "person",
+      "stars": 2,
+      "school": "东晋",
+      "tagline": "论文学发展——“今胜于古”",
+      "detail": "《抱朴子》中的文学观。认为文学随时代发展，今文胜过古文；文章德行并重；重视文章的艺术价值。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "wenbi-shuo",
+      "name": "文笔说",
+      "type": "school",
+      "stars": 2,
+      "school": "",
+      "tagline": "“文”与“笔”的区分",
+      "detail": "南朝时期关于“文”（有韵之文）与“笔”（无韵之文）区分的理论。反映了文学自觉意识的深化和对形式特征的重视。刘勰、萧绎等都有论述。",
+      "era": "魏晋南北朝",
+      "color": "#a93226"
+    },
+    {
+      "id": "pei-zive",
+      "name": "裴子野",
+      "type": "person",
+      "stars": 2,
+      "school": "南朝",
+      "tagline": "反对雕琢——《雕虫论》",
+      "detail": "《雕虫论》批判齐梁文风雕琢浮艳，提倡质朴实用，反映了复古守旧的文学观。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "xiao-tong",
+      "name": "萧统",
+      "type": "person",
+      "stars": 3,
+      "school": "南朝梁",
+      "tagline": "《文选》——“事出于沉思，义归乎翰藻”",
+      "detail": "编纂《文选》——现存最早的诗文总集。序中提出选文标准：“事出于沉思，义归乎翰藻”。肯定文学的审美特征，与经史子分开。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "xiao-gang",
+      "name": "萧纲",
+      "type": "person",
+      "stars": 2,
+      "school": "南朝梁",
+      "tagline": "宫体文学理论——“立身先须谨重，文章且须放荡”",
+      "detail": "《与湘东王书》等提倡宫体诗风，主张“文章且须放荡”——文章应自由抒发情性，重视形式之美。与裴子野复古论相对。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "liu-xie",
+      "name": "刘勰",
+      "type": "person",
+      "stars": 3,
+      "school": "南朝齐梁",
+      "tagline": "《文心雕龙》——体大思精的文学理论巨著",
+      "detail": "《文心雕龙》五十篇，体大思精、笼罩群言。“原道”“征圣”“宗经”——文之枢纽；“神思”——创作构思；“体性”“风骨”“通变”——风格论；“情采”——内容形式关系；“知音”——文学批评。建立了完整的文学理论体系。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "zhong-rong",
+      "name": "钟嵘",
+      "type": "person",
+      "stars": 3,
+      "school": "南朝梁",
+      "tagline": "《诗品》——“滋味”说与“直寻”说",
+      "detail": "《诗品》品评汉魏至齐梁五言诗诗人122家，分上中下三品。“滋味”说——诗歌应有深厚韵味；“直寻”——直接描写所见所感；“自然英旨”——反对用典、声病；推重“建安风力”。中国诗歌批评的开山之作。",
+      "era": "魏晋南北朝",
+      "color": "#c0392b"
+    },
+    {
+      "id": "sui-tang-wudai",
+      "name": "隋唐五代",
+      "type": "era",
+      "stars": 0,
+      "school": "",
+      "tagline": "诗文革新的时代",
+      "detail": "陈子昂倡“风骨兴寄”，杜甫、白居易重诗教，韩愈、柳宗元兴古文运动，司空图《二十四诗品》开意境理论先声。",
+      "era": "隋唐五代",
+      "color": "#34495e"
+    },
+    {
+      "id": "li-chenziang",
+      "name": "陈子昂",
+      "type": "person",
+      "stars": 3,
+      "school": "初唐",
+      "tagline": "“风骨”与“兴寄”——诗歌革新宣言",
+      "detail": "《修竹篇序》提出“汉魏风骨”与“兴寄”——批判齐梁绮靡诗风，主张诗歌恢复风骨、寄托现实。为唐诗发展开辟道路，被尊为唐诗革新先驱。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "du-fu",
+      "name": "杜甫",
+      "type": "person",
+      "stars": 3,
+      "school": "盛唐",
+      "tagline": "重视思想内容——“转益多师是吾师”",
+      "detail": "现实主义大诗人。论诗重视思想内容，主张诗须有益于国家人民；赞美《诗经》《楚辞》传统；“不满今人爱古人，清词丽句必为邻”“转益多师是吾师”——多方面学习遗产；评价前代诗人精到（评庾信、陈子昂、李白等）。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "yuan-jie",
+      "name": "元结",
+      "type": "person",
+      "stars": 2,
+      "school": "盛唐",
+      "tagline": "《箧中集》——提倡质朴古淡",
+      "detail": "编《箧中集》，倡导质朴古淡、反映现实的诗风，与杜甫诗歌主张相近。是唐代诗歌革新的先驱之一。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "bai-juyi",
+      "name": "白居易",
+      "type": "person",
+      "stars": 3,
+      "school": "中唐",
+      "tagline": "“文章合为时而著，歌诗合为事而作”",
+      "detail": "新乐府运动的领袖。主张诗歌“为君、为臣、为民、为物、为事而作”；“文章合为时而著，歌诗合为事而作”；重视诗歌的政治教化作用；《与元九书》系统阐述其诗歌理论。诗要“言直而切”、“其辞质而径”。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "han-yu",
+      "name": "韩愈",
+      "type": "person",
+      "stars": 3,
+      "school": "中唐",
+      "tagline": "“文以载道”“不平则鸣”",
+      "detail": "古文运动的领袖。“文以载道”（文以明道）——文章为儒家之道服务；“不平则鸣”——作品产生于不平之气；“气盛言宜”——文气说；“惟陈言之务去”——反模拟创新；提倡散体古文，反对骈文。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "liu-zongyuan",
+      "name": "柳宗元",
+      "type": "person",
+      "stars": 3,
+      "school": "中唐",
+      "tagline": "“文以明道”——辅时及物",
+      "detail": "古文运动领袖之一。“文者以明道”——文章阐明圣人之道；强调文章应“辅时及物”——有益时政、切合事物；重视文章的“感激怨怼”之作；与韩愈并称“韩柳”。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "siku-tu",
+      "name": "司空图",
+      "type": "person",
+      "stars": 3,
+      "school": "晚唐",
+      "tagline": "《二十四诗品》——“韵外之致”“味外之旨”",
+      "detail": "《二十四诗品》以四言诗形式描述二十四种诗歌风格。“韵外之致”“味外之旨”“象外之象”——主张诗歌应有言外之意、味外之味。开后世“意境”理论之先声，影响严羽、王士禛。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "du-mu",
+      "name": "杜牧",
+      "type": "person",
+      "stars": 2,
+      "school": "晚唐",
+      "tagline": "论杜诗——“风骨”论",
+      "detail": "晚唐诗人。评价杜甫诗歌时提出对“风骨”的重视，其诗论有助于认识盛唐诗风。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "li-shangyin",
+      "name": "李商隐",
+      "type": "person",
+      "stars": 2,
+      "school": "晚唐",
+      "tagline": "论诗主张温柔敦厚",
+      "detail": "晚唐诗人。其文学观点与古文运动相呼应，论诗主张继承“温柔敦厚”传统。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "pi-rixiu",
+      "name": "皮日休",
+      "type": "person",
+      "stars": 2,
+      "school": "晚唐",
+      "tagline": "重道重教的文学观",
+      "detail": "晚唐文学家。继承韩愈古文运动精神，主张文章明道致用，重视诗歌的社会批判作用。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "lu-guimeng",
+      "name": "陆龟蒙",
+      "type": "person",
+      "stars": 1,
+      "school": "晚唐",
+      "tagline": "与皮日休齐名的古文家",
+      "detail": "晚唐文学家，与皮日休并称“皮陆”。文学主张相近。",
+      "era": "隋唐五代",
+      "color": "#d35400"
+    },
+    {
+      "id": "sui-wenlun",
+      "name": "隋代文论",
+      "type": "school",
+      "stars": 2,
+      "school": "",
+      "tagline": "隋文帝、王通等的文学观",
+      "detail": "隋代文论：隋文帝反对浮华文风，李谔《上隋高祖革文华书》批判六朝浮艳文风，王通《中说》提倡“上明三纲，下达五常”的载道文学观。",
+      "era": "隋唐五代",
+      "color": "#b9770e"
+    },
+    {
+      "id": "song-jin-yuan",
+      "name": "宋金元",
+      "type": "era",
+      "stars": 0,
+      "school": "",
+      "tagline": "诗话、词论与曲论的繁盛",
+      "detail": "欧阳修开诗话之体，江西诗派、严羽《沧浪诗话》继之；李清照《词论》、张炎《词源》奠词学；元代《中原音韵》《唱论》启曲学批评。",
+      "era": "宋金元",
+      "color": "#34495e"
+    },
+    {
+      "id": "ouyang-xiu",
+      "name": "欧阳修",
+      "type": "person",
+      "stars": 3,
+      "school": "北宋",
+      "tagline": "“诗穷而后工”说",
+      "detail": "北宋诗文革新运动领袖。“诗穷而后工”——诗人经历困厄才能写出好诗（发展韩愈“不平则鸣”）；论诗重视内容；《六一诗话》开创诗话体裁；领导古文运动，提倡平易自然的文风。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "wang-anshi",
+      "name": "王安石",
+      "type": "person",
+      "stars": 2,
+      "school": "北宋",
+      "tagline": "重实用的文学观",
+      "detail": "北宋政治家、文学家。强调文章经世致用，批评华而不实的文风。与欧阳修共同推动诗文革新。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "su-shi",
+      "name": "苏轼",
+      "type": "person",
+      "stars": 3,
+      "school": "北宋",
+      "tagline": "“诗中有画，画中有诗”——自然天成",
+      "detail": "北宋文坛领袖。“诗中有画，画中有诗”（评王维）；“出新意于法度之中，寄妙理于豪放之外”；主张“文理自然，姿态横生”；“随物赋形”；崇尚自然天成，反对刻意雕琢。对金代王若虚等有影响。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "huang-tingjian",
+      "name": "黄庭坚",
+      "type": "person",
+      "stars": 3,
+      "school": "北宋",
+      "tagline": "江西诗派祖师——“点铁成金”“夺胎换骨”",
+      "detail": "江西诗派祖师。主张“点铁成金”“夺胎换骨”——化用前人诗句成语；“无一字无来处”；讲究诗法、句法；推崇杜甫“无一字无来处”的锤炼功夫。影响南宋江西诗派（吕本中、陈师道等）。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "jiangxi-shishe",
+      "name": "江西诗派",
+      "type": "school",
+      "stars": 3,
+      "school": "",
+      "tagline": "宋代影响最大的诗派",
+      "detail": "以黄庭坚为宗主的诗派。讲究诗法句法、化用前人，崇尚瘦硬奇崛风格。主要成员：陈师道、陈与义、吕本中、曾几等。南宋前期诗坛的主流。",
+      "era": "宋金元",
+      "color": "#1a5276"
+    },
+    {
+      "id": "lv-ben-zhong",
+      "name": "吕本中",
+      "type": "person",
+      "stars": 2,
+      "school": "南宋",
+      "tagline": "“活法”说——江西诗派修正",
+      "detail": "南宋诗人。“活法”说——作诗要有法而不拘于法，随物赋形，自然变化。在江西诗派内部提倡灵活变通，开创新局面。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "zhang-jie",
+      "name": "张戒",
+      "type": "person",
+      "stars": 2,
+      "school": "南宋",
+      "tagline": "《岁寒堂诗话》——主“言志”斥苏黄",
+      "detail": "《岁寒堂诗话》反对苏黄以来的“以文字为诗、以议论为诗”，主张“言志”为本，重视诗歌的思想内容和艺术感染力。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "lu-you",
+      "name": "陆游",
+      "type": "person",
+      "stars": 2,
+      "school": "南宋",
+      "tagline": "“工夫在诗外”",
+      "detail": "南宋爱国诗人。“汝果欲学诗，工夫在诗外”——诗人须有丰富的生活体验。从江西诗派入而能自出机杼。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "yang-wanli",
+      "name": "杨万里",
+      "type": "person",
+      "stars": 2,
+      "school": "南宋",
+      "tagline": "“诚斋体”——“闭门觅句非诗法”",
+      "detail": "南宋诗人。“闭门觅句非诗法，只是征行自有诗”——诗歌来自生活实践。推重晚唐诗，主张平易自然，反对艰深。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "jiang-kui",
+      "name": "姜夔",
+      "type": "person",
+      "stars": 2,
+      "school": "南宋",
+      "tagline": "“自然高妙”说——开严羽先声",
+      "detail": "南宋词人、诗人。论诗注重艺术之美，反对以议论、以典故为诗，强调简约含蓄，提出“四种高妙”而以“自然高妙”为最高境界。开严羽“妙悟”理论先声。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "zhu-xi",
+      "name": "朱熹",
+      "type": "person",
+      "stars": 3,
+      "school": "南宋",
+      "tagline": "理学家文学观——“文道一贯”",
+      "detail": "理学集大成者。主张“文道一贯”——文与道统一，文从道中流出；以道为本；对《诗经》“郑卫之音”等问题有独特见解；其文学观对后世影响深远。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "yan-yu",
+      "name": "严羽",
+      "type": "person",
+      "stars": 3,
+      "school": "南宋",
+      "tagline": "《沧浪诗话》——“妙悟”“别材别趣”",
+      "detail": "《沧浪诗话》为宋代诗话中最有系统者。“诗有别材，非关书也；诗有别趣，非关理也”——“别材别趣”说；“妙悟”说——诗歌要靠悟；“以盛唐为法”——推崇汉魏盛唐；“兴趣”说——“羚羊挂角，无迹可求”。对明清诗论影响深刻。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "dai-fugu",
+      "name": "戴复古",
+      "type": "person",
+      "stars": 1,
+      "school": "南宋",
+      "tagline": "江湖派诗人，诗论与严羽相发明",
+      "detail": "江湖派诗人。其诗论与严羽可以相互发明。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "liu-kezhuang",
+      "name": "刘克庄",
+      "type": "person",
+      "stars": 2,
+      "school": "南宋",
+      "tagline": "江湖派代表，论诗重才情",
+      "detail": "江湖派代表诗人。论诗重视才情，诗论与严羽、戴复古有相互发明之处。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "li-qingzhao",
+      "name": "李清照",
+      "type": "person",
+      "stars": 3,
+      "school": "北宋末南宋初",
+      "tagline": "《词论》——“别是一家”说",
+      "detail": "《词论》是古代第一篇系统的词学专论。提出词“别是一家，知之者少”——词与诗有别；词须协音律、重铺叙、尚故实；批评苏轼“句读不葺之诗”；评价五代至北宋词人得失。被称为“词论开山”之作。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "zhang-yan",
+      "name": "张炎",
+      "type": "person",
+      "stars": 3,
+      "school": "宋末元初",
+      "tagline": "《词源》——“清空”“雅正”说",
+      "detail": "《词源》论词以“清空”为最高标准——“清空则古雅峭拔，质实则凝涩晦昧”；主张“雅正”；评姜夔词“清空骚雅”；对辛弃疾等豪放词有批评。与李清照《词论》并称宋代词论双璧。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "yuan-haowen",
+      "name": "元好问",
+      "type": "person",
+      "stars": 3,
+      "school": "金代",
+      "tagline": "《论诗三十首》——“诗中疏凿手”",
+      "detail": "金代文学批评大家。《论诗三十首》以绝句论诗，评述汉魏至宋金诗人。“眼处心生句自神”——重视亲身体验；推崇“天然”“真淳”；批评江西诗派“高情千古《闲居赋》，争信安仁拜路尘”（论潘岳）。《中州集》保存金代文献。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "wang-ruoxu",
+      "name": "王若虚",
+      "type": "person",
+      "stars": 2,
+      "school": "金代",
+      "tagline": "反对模拟，崇尚自然",
+      "detail": "金代文论家。《滹南诗话》主张“文章以意为主”，反对江西诗派模拟剽窃，崇尚自然真淳，与元好问文学主张相近。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "zhi-an",
+      "name": "芝庵",
+      "type": "person",
+      "stars": 2,
+      "school": "元代",
+      "tagline": "《唱论》——最早的戏曲声乐理论",
+      "detail": "元代曲论家。《唱论》论述演唱艺术，是中国戏曲批评萌芽时期的重要著作，对演唱技巧、风格有系统论述。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "zhou-deqing",
+      "name": "周德清",
+      "type": "person",
+      "stars": 3,
+      "school": "元代",
+      "tagline": "《中原音韵》——“作曲十法”与音韵规范",
+      "detail": "元代音韵学家、曲论家。《中原音韵》规范北曲音韵，提出“作曲十法”，对元曲的创作和演唱有理论总结。是元代曲论的重要著作。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "luo-ye",
+      "name": "罗烨",
+      "type": "person",
+      "stars": 2,
+      "school": "元代",
+      "tagline": "《醉翁谈录》——最早的小说专论",
+      "detail": "《醉翁谈录》是现存最早的小说专论之一。总结说话艺术（小说讲史）的题材分类、艺术技巧（“说收拾寻常有百万套”等），反映了宋代说话艺术的理论总结。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "xin-qiji",
+      "name": "辛弃疾",
+      "type": "person",
+      "stars": 2,
+      "school": "南宋",
+      "tagline": "豪放词派与词论",
+      "detail": "南宋豪放词派代表。其词论主张（如论词“先自胸次流出”）体现了对词体表现力的拓展。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    },
+    {
+      "id": "huang-shanggu",
+      "name": "黄昇",
+      "type": "person",
+      "stars": 1,
+      "school": "南宋",
+      "tagline": "《花庵词选》选家批评",
+      "detail": "南宋词选家。编《花庵词选》（《中兴以来绝妙词选》等），通过选本体现词学批评观念。",
+      "era": "宋金元",
+      "color": "#1f618d"
+    }
+  ],
+  "links": [
+    {
+      "source": "kongzi",
+      "target": "mengzi",
+      "type": "传承"
+    },
+    {
+      "source": "kongzi",
+      "target": "xunzi",
+      "type": "传承"
+    },
+    {
+      "source": "kongzi",
+      "target": "maoshi-xu",
+      "type": "影响"
+    },
+    {
+      "source": "mengzi",
+      "target": "xunzi",
+      "type": "同代"
+    },
+    {
+      "source": "laozi",
+      "target": "zhuangzi",
+      "type": "传承"
+    },
+    {
+      "source": "zhuangzi",
+      "target": "liu-xie",
+      "type": "影响"
+    },
+    {
+      "source": "maoshi-xu",
+      "target": "ban-gu",
+      "type": "影响"
+    },
+    {
+      "source": "sima-qian",
+      "target": "du-fu",
+      "type": "影响"
+    },
+    {
+      "source": "sima-qian",
+      "target": "han-yu",
+      "type": "影响"
+    },
+    {
+      "source": "sima-qian",
+      "target": "bai-juyi",
+      "type": "影响"
+    },
+    {
+      "source": "yang-xiong",
+      "target": "ban-gu",
+      "type": "影响"
+    },
+    {
+      "source": "ban-gu",
+      "target": "wang-yi",
+      "type": "对立"
+    },
+    {
+      "source": "cao-pi",
+      "target": "lu-ji",
+      "type": "影响"
+    },
+    {
+      "source": "cao-pi",
+      "target": "liu-xie",
+      "type": "影响"
+    },
+    {
+      "source": "lu-ji",
+      "target": "liu-xie",
+      "type": "影响"
+    },
+    {
+      "source": "lu-ji",
+      "target": "zhong-rong",
+      "type": "影响"
+    },
+    {
+      "source": "zhi-yu",
+      "target": "liu-xie",
+      "type": "影响"
+    },
+    {
+      "source": "ge-hong",
+      "target": "liu-xie",
+      "type": "影响"
+    },
+    {
+      "source": "wenbi-shuo",
+      "target": "liu-xie",
+      "type": "同代"
+    },
+    {
+      "source": "pei-zive",
+      "target": "xiao-gang",
+      "type": "对立"
+    },
+    {
+      "source": "xiao-tong",
+      "target": "liu-xie",
+      "type": "同代"
+    },
+    {
+      "source": "liu-xie",
+      "target": "zhong-rong",
+      "type": "同代"
+    },
+    {
+      "source": "zhong-rong",
+      "target": "li-chenziang",
+      "type": "影响"
+    },
+    {
+      "source": "li-chenziang",
+      "target": "du-fu",
+      "type": "影响"
+    },
+    {
+      "source": "li-chenziang",
+      "target": "yuan-jie",
+      "type": "影响"
+    },
+    {
+      "source": "li-chenziang",
+      "target": "bai-juyi",
+      "type": "影响"
+    },
+    {
+      "source": "du-fu",
+      "target": "yuan-jie",
+      "type": "同派"
+    },
+    {
+      "source": "du-fu",
+      "target": "bai-juyi",
+      "type": "影响"
+    },
+    {
+      "source": "du-fu",
+      "target": "han-yu",
+      "type": "影响"
+    },
+    {
+      "source": "du-fu",
+      "target": "siku-tu",
+      "type": "影响"
+    },
+    {
+      "source": "han-yu",
+      "target": "liu-zongyuan",
+      "type": "同派"
+    },
+    {
+      "source": "han-yu",
+      "target": "pi-rixiu",
+      "type": "影响"
+    },
+    {
+      "source": "han-yu",
+      "target": "ouyang-xiu",
+      "type": "影响"
+    },
+    {
+      "source": "liu-zongyuan",
+      "target": "ouyang-xiu",
+      "type": "影响"
+    },
+    {
+      "source": "bai-juyi",
+      "target": "pi-rixiu",
+      "type": "影响"
+    },
+    {
+      "source": "siku-tu",
+      "target": "yan-yu",
+      "type": "影响"
+    },
+    {
+      "source": "siku-tu",
+      "target": "jiang-kui",
+      "type": "影响"
+    },
+    {
+      "source": "sui-wenlun",
+      "target": "li-chenziang",
+      "type": "影响"
+    },
+    {
+      "source": "han-yu",
+      "target": "ouyang-xiu",
+      "type": "传承"
+    },
+    {
+      "source": "ouyang-xiu",
+      "target": "su-shi",
+      "type": "影响"
+    },
+    {
+      "source": "ouyang-xiu",
+      "target": "wang-anshi",
+      "type": "同代"
+    },
+    {
+      "source": "su-shi",
+      "target": "huang-tingjian",
+      "type": "影响"
+    },
+    {
+      "source": "huang-tingjian",
+      "target": "jiangxi-shishe",
+      "type": "创立"
+    },
+    {
+      "source": "jiangxi-shishe",
+      "target": "lv-ben-zhong",
+      "type": "影响"
+    },
+    {
+      "source": "jiangxi-shishe",
+      "target": "lu-you",
+      "type": "影响"
+    },
+    {
+      "source": "jiangxi-shishe",
+      "target": "yang-wanli",
+      "type": "影响"
+    },
+    {
+      "source": "su-shi",
+      "target": "li-qingzhao",
+      "type": "对立"
+    },
+    {
+      "source": "li-qingzhao",
+      "target": "zhang-yan",
+      "type": "影响"
+    },
+    {
+      "source": "huang-tingjian",
+      "target": "yan-yu",
+      "type": "对立"
+    },
+    {
+      "source": "su-shi",
+      "target": "yan-yu",
+      "type": "对立"
+    },
+    {
+      "source": "jiang-kui",
+      "target": "yan-yu",
+      "type": "影响"
+    },
+    {
+      "source": "lu-you",
+      "target": "yang-wanli",
+      "type": "同派"
+    },
+    {
+      "source": "lv-ben-zhong",
+      "target": "zhang-jie",
+      "type": "对立"
+    },
+    {
+      "source": "zhang-yan",
+      "target": "yuan-haowen",
+      "type": "影响"
+    },
+    {
+      "source": "yuan-haowen",
+      "target": "wang-ruoxu",
+      "type": "同派"
+    },
+    {
+      "source": "yuan-haowen",
+      "target": "zhou-deqing",
+      "type": "影响"
+    },
+    {
+      "source": "zhi-an",
+      "target": "zhou-deqing",
+      "type": "同代"
+    },
+    {
+      "source": "ouyang-xiu",
+      "target": "li-qingzhao",
+      "type": "影响"
+    },
+    {
+      "source": "jiang-kui",
+      "target": "zhang-yan",
+      "type": "影响"
+    },
+    {
+      "source": "yan-yu",
+      "target": "yuan-haowen",
+      "type": "同代"
+    }
+  ]
+}

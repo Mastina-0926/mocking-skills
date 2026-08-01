@@ -80,7 +80,13 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 <div class="nav">
   <a href="index.html">← 首页</a>
   <span class="title">面试模拟</span>
-  <div class="right"><span class="qnum" id="qNum">0/12</span></div>
+  <div class="right">
+    <select id="versionSelect" style="font-size:12px;padding:3px 8px;border-radius:6px;border:1px solid #d0e4f7;background:#fff;font-family:inherit;margin-right:8px">
+      <option value="shang">📘 上册·先秦至宋金元</option>
+      <option value="xia">📕 下册·明代至清代</option>
+    </select>
+    <span class="qnum" id="qNum">0/0</span>
+  </div>
 </div>
 
 <div class="container" id="app">
@@ -88,8 +94,8 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
   <div id="startScreen">
     <div class="start-screen">
       <h2>🎤 面试模拟训练</h2>
-      <p>42道预测题，覆盖全书95%以上考点</p>
-      <p style="font-size:12px;color:#7a7a7a">每道题：60秒准备 → 180秒回答 → 查看答题框架</p>
+      <p id="startDesc">38道预测题，覆盖上册全部考点</p>
+      <p style="font-size:12px;color:#7a9bcb">每道题：60秒准备 → 180秒回答 → 查看答题框架</p>
       <button class="big-btn" id="startBtn">开始模拟面试</button>
     </div>
   </div>
@@ -129,7 +135,7 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
   <div id="doneScreen" style="display:none">
     <div class="done-screen">
       <h2>🎉 全部完成！</h2>
-      <p>你已经完成了42道面试模拟题。</p>
+      <p id="doneDesc">你已经完成了本册全部面试模拟题。</p>
       <p style="font-size:12px;color:#7a7a7a">建议你反复练习，直到每道题都能流畅说出框架。</p>
       <button class="big-btn" id="restartBtn" style="margin-top:16px;padding:12px 36px;border-radius:10px;border:none;background:#2b6cb0;color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit">重新开始</button>
     </div>
@@ -160,13 +166,36 @@ var qNum = document.getElementById('qNum');
 var qInfo = document.getElementById('qInfo');
 var startBtn = document.getElementById('startBtn');
 var restartBtn = document.getElementById('restartBtn');
+var versionSelect = document.getElementById('versionSelect');
+var startDesc = document.getElementById('startDesc');
+
+var currentVersion = 'shang';
 
 // load data
-fetch('assets/interviews.json').then(function(r){return r.json();}).then(function(data){
-  questions = data;
-  startBtn.disabled = false;
-  startBtn.textContent = '开始模拟面试';
-});
+function loadQuestions(version){
+  var file = version === 'shang' ? 'assets/interviews-shang.json' : 'assets/interviews.json';
+  currentVersion = version;
+  fetch(file).then(function(r){return r.json();}).then(function(data){
+    questions = data;
+    startDesc.textContent = data.length + '道预测题，覆盖' + (version === 'shang' ? '上册' : '下册') + '全部考点';
+    startBtn.disabled = false;
+    startBtn.textContent = '开始模拟面试';
+    // reset UI
+    resetTimer();
+    currentIdx = 0;
+    fwBox.classList.remove('open');
+    startScreen.style.display = 'block';
+    questionArea.style.display = 'none';
+    doneScreen.style.display = 'none';
+    qNum.textContent = '0/' + questions.length;
+  });
+}
+
+loadQuestions('shang');
+
+versionSelect.onchange = function(){
+  loadQuestions(versionSelect.value);
+};
 
 startBtn.onclick = function(){start();};
 restartBtn.onclick = function(){start();};

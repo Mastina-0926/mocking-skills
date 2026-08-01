@@ -57,8 +57,14 @@ footer{padding:20px;text-align:center;color:#7a9bcb;font-size:12px;border-top:1p
 
 <div class="nav">
   <a href="index.html">← 首页</a>
-  <span class="title">闪卡复习（80张）</span>
-  <div class="count" id="countDisplay">加载中...</div>
+  <span class="title">闪卡复习</span>
+  <div class="count">
+    <select id="versionSelect" style="font-size:12px;padding:3px 8px;border-radius:6px;border:1px solid #d0e4f7;background:#fff;font-family:inherit;margin-right:10px">
+      <option value="shang">📘 上册·先秦至宋金元</option>
+      <option value="xia">📕 下册·明代至清代</option>
+    </select>
+    <span id="countDisplay">加载中...</span>
+  </div>
   <button class="reset-btn" id="resetProgressBtn">重置进度</button>
 </div>
 
@@ -99,12 +105,14 @@ footer{padding:20px;text-align:center;color:#7a9bcb;font-size:12px;border-top:1p
 <script>
 (function(){
 var STORAGE_KEY = 'criticism_flashcard_progress_v1';
+var STORAGE_KEY_SUFFIX = '_shang'; // per version
 
 // data
 var cards = [];
 var progress = {};
 var currentIndex = -1;
 var showingAnswer = false;
+var currentVersion = 'shang';
 
 var questionEl = document.getElementById('question');
 var answerEl = document.getElementById('answer');
@@ -119,6 +127,7 @@ var cardStars = document.getElementById('cardStars');
 var sideLabel = document.getElementById('sideLabel');
 var countDisplay = document.getElementById('countDisplay');
 var resetBtn = document.getElementById('resetProgressBtn');
+var versionSelect = document.getElementById('versionSelect');
 var statDue = document.getElementById('statDue');
 var statLearning = document.getElementById('statLearning');
 var statMastered = document.getElementById('statMastered');
@@ -127,12 +136,23 @@ var barFill = document.getElementById('barFill');
 var cardContainer = document.getElementById('cardContainer');
 
 // load data
-fetch('assets/flashcards.json').then(function(r){return r.json();}).then(function(data){
-  cards = data;
-  loadProgress();
-  showCard();
-  updateStats();
-});
+function loadCards(version){
+  var file = version === 'shang' ? 'assets/flashcards-shang.json' : 'assets/flashcards.json';
+  currentVersion = version;
+  STORAGE_KEY = 'criticism_flashcard_progress_v1' + (version === 'shang' ? '_shang' : '_xia');
+  fetch(file).then(function(r){return r.json();}).then(function(data){
+    cards = data;
+    loadProgress();
+    showCard();
+    updateStats();
+  });
+}
+
+loadCards('shang');
+
+versionSelect.onchange = function(){
+  loadCards(versionSelect.value);
+};
 
 function loadProgress(){
   try{

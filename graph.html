@@ -56,9 +56,13 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 
 <div class="nav">
   <a href="index.html">← 首页</a>
-  <span class="title">知识图谱（91个节点）</span>
+  <span class="title">知识图谱</span>
   <div class="controls">
-    <select id="filterEra"><option value="all">全部朝代</option><option value="明代">明代</option><option value="清代前中期">清代前中期</option></select>
+    <select id="versionSelect">
+      <option value="shang">📘 上册·先秦两汉至宋金元</option>
+      <option value="xia">📕 下册·明代至清代</option>
+    </select>
+    <select id="filterEra"><option value="all">全部时代</option></select>
     <select id="filterStars"><option value="all">全部重要度</option><option value="3">★★★</option><option value="2">★★</option><option value="1">★</option></select>
     <button class="clear-btn" id="resetBtn">重置视图</button>
   </div>
@@ -81,9 +85,11 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
   <div class="pd" id="pDetail"></div>
 </div>
 
-<div class="legend">
-  <span class="legend-item"><span class="legend-dot" style="background:#9b4b3e"></span>明代</span>
-  <span class="legend-item"><span class="legend-dot" style="background:#4a7c59"></span>清代前中期</span>
+<div class="legend" id="legend">
+  <span class="legend-item"><span class="legend-dot" style="background:#8e44ad"></span>先秦两汉</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#c0392b"></span>魏晋南北朝</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#d35400"></span>隋唐五代</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#1f618d"></span>宋金元</span>
   <span class="legend-item"><span class="legend-line" style="background:#999"></span> 关联关系</span>
 </div>
 
@@ -100,15 +106,67 @@ var emptyState = document.getElementById('emptyState');
 var filterEra = document.getElementById('filterEra');
 var filterStars = document.getElementById('filterStars');
 var resetBtn = document.getElementById('resetBtn');
+var versionSelect = document.getElementById('versionSelect');
+var legend = document.getElementById('legend');
+
+var VERSIONS = {
+  shang: {
+    file: 'assets/knowledge-graph-shang.json',
+    eras: ['先秦两汉','魏晋南北朝','隋唐五代','宋金元'],
+    legend: [
+      ['#8e44ad','先秦两汉'],['#c0392b','魏晋南北朝'],['#d35400','隋唐五代'],['#1f618d','宋金元']
+    ]
+  },
+  xia: {
+    file: 'assets/knowledge-graph.json',
+    eras: ['明代','清代前中期'],
+    legend: [
+      ['#9b4b3e','明代'],['#4a7c59','清代前中期']
+    ]
+  }
+};
 
 var graphData = {nodes:[], links:[]};
 var sim, svg, link, node, label;
 
-// load data
-d3.json('assets/knowledge-graph.json').then(function(data){
-  graphData = data;
-  initGraph();
-});
+function loadGraph(versionKey){
+  var v = VERSIONS[versionKey];
+  // update era filter options
+  filterEra.innerHTML = '<option value="all">全部时代</option>';
+  v.eras.forEach(function(e){
+    var opt = document.createElement('option');
+    opt.value = e;
+    opt.textContent = e;
+    filterEra.appendChild(opt);
+  });
+  // update legend
+  legend.innerHTML = '';
+  v.legend.forEach(function(item){
+    var span = document.createElement('span');
+    span.className = 'legend-item';
+    span.innerHTML = '<span class="legend-dot" style="background:'+item[0]+'"></span>'+item[1];
+    legend.appendChild(span);
+  });
+  var line = document.createElement('span');
+  line.className = 'legend-item';
+  line.innerHTML = '<span class="legend-line" style="background:#999"></span> 关联关系';
+  legend.appendChild(line);
+
+  // clear old graph
+  if(svg){ svg.remove(); svg = null; sim = null; }
+
+  d3.json(v.file).then(function(data){
+    graphData = data;
+    initGraph();
+  });
+}
+
+// load data (default: shang)
+loadGraph('shang');
+
+versionSelect.onchange = function(){
+  loadGraph(versionSelect.value);
+};
 
 function initGraph(){
   var w = graphEl.clientWidth;
