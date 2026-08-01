@@ -74,13 +74,188 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 <div class="container">
 <div class="page-header">
   <h1>📚 文论著作分类总览</h1>
-  <p>按时代 × 文体 × 著作整理 · 基于《中国文学批评史新编》第二版下册 · 明代 + 清代前中期</p>
+  <p>按时代 × 文体 × 著作整理 · 基于《中国文学批评史新编》第二版 · 上册 + 下册 全六编</p>
 </div>
 
 <div class="note">
   <h4>📌 说明</h4>
   <p>本书为<b>文学批评史</b>，收录范围为<b>诗文评、词论、戏曲批评、小说批评</b>类著作。<b>书论（书法理论）和画论（绘画理论）</b>不在本书讨论范围之内，全书未设专章专节。<br><br>
-  刘熙载《艺概》中包含《书概》论书法，但属于近代部分（不在当前范围内）。如需了解书论画论，建议参阅《中国书画理论史》《中国美学史》等专门著作。</p>
+  如需了解书论画论，建议参阅《中国书画理论史》《中国美学史》等专门著作。</p>
+</div>
+
+<!-- ════════════ 先秦两汉 ════════════ -->
+<div class="era-section" id="xianqin">
+<div class="era-title"><span class="badge">先秦两汉</span> 约前11世纪—公元220年</div>
+
+<div class="genre-tabs">
+  <button class="genre-tab active" onclick="filterGenre('xianqin','all',this)">全部著作</button>
+  <button class="genre-tab" onclick="filterGenre('xianqin','poem',this)">📜 诗论</button>
+  <button class="genre-tab" onclick="filterGenre('xianqin','prose',this)">📝 文论</button>
+</div>
+
+<!-- 先秦两汉诗论 -->
+<div class="genre-section" data-era="xianqin" data-genre="poem">
+<div class="genre-head">📜 诗论著作 <span class="sub">中国文学批评的源头——"诗言志"传统的确立</span></div>
+<div class="flow-line">📖 <strong>发展脉络</strong>：《诗经》《尚书》（"诗言志"）→ 孔子《论语》（"兴观群怨""思无邪"）→ 孟子（"以意逆志""知人论世"）→ 荀子《乐论》→ 道家老庄（"大音希声""得意忘言"）→ 汉代《毛诗序》（"六义""变风变雅"）</div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《诗经》《尚书》</div><div class="w-author">先秦典籍 <span class="w-stars">★★</span></div><div class="w-era">先秦</div><div class="w-desc">"诗言志"最早见于《尚书·尧典》——中国诗论"开山的纲领"。以"兴观群怨"为代表的儒家用诗传统由此发端。赋诗言志、观乐论政反映了早期文学批评的实用主义倾向。</div></div>
+  <div class="work-card"><div class="w-title">《论语》</div><div class="w-author">孔子 <span class="w-stars">★★★</span></div><div class="w-era">先秦·儒家</div><div class="w-desc">提出"诗可以兴，可以观，可以群，可以怨"——全面揭示诗歌的社会作用；"思无邪"——思想标准；"文质彬彬""文犹质也"——内容与形式关系。是中国文学批评的源头。</div></div>
+  <div class="work-card"><div class="w-title">《孟子》</div><div class="w-author">孟子 <span class="w-stars">★★★</span></div><div class="w-era">先秦·儒家</div><div class="w-desc">提出"知言养气"说——批评者需有深厚道德修养；"以意逆志"——以读者之意推求作者之志；"知人论世"——联系作者身世时代理解作品。奠定古代批评方法论。</div></div>
+  <div class="work-card"><div class="w-title">《荀子·乐论》</div><div class="w-author">荀子 <span class="w-stars">★★</span></div><div class="w-era">先秦·儒家</div><div class="w-desc">肯定文艺的政治教化功能，重视"诗言志"传统，主张"文"为明道服务。其乐论与《礼记·乐记》相为表里，是儒家文艺观的系统阐发。</div></div>
+  <div class="work-card"><div class="w-title">《老子》</div><div class="w-author">老子 <span class="w-stars">★★</span></div><div class="w-era">先秦·道家</div><div class="w-desc">提出"大音希声，大象无形""五色令人目盲"等命题，崇尚自然无为的美学理想，反对过分雕琢。对后世"自然""神韵""平淡"等理论有深远影响。</div></div>
+  <div class="work-card"><div class="w-title">《庄子》</div><div class="w-author">庄子 <span class="w-stars">★★★</span></div><div class="w-era">先秦·道家</div><div class="w-desc">"得意忘言"——言意之辨的源头；"虚静"——创作与批评的精神状态；"天籁""神遇""庖丁解牛"等寓言。对古代"意境""神韵""妙悟"理论有重大影响。</div></div>
+  <div class="work-card"><div class="w-title">《毛诗序》</div><div class="w-author">汉代《诗经》研究 <span class="w-stars">★★★</span></div><div class="w-era">汉代</div><div class="w-desc">汉代《诗经》研究的纲领性文献。"诗者，志之所之也，在心为志，发言为诗"——诗言志的系统阐释；"六义"说（风雅颂赋比兴）；"变风变雅"说；"美刺"说；强调诗歌的教化作用。</div></div>
+</div>
+</div>
+
+<!-- 先秦两汉文论 -->
+<div class="genre-section" data-era="xianqin" data-genre="prose">
+<div class="genre-head">📝 文论著作 <span class="sub">从史传批评到子书文论，文学观念渐趋独立</span></div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《史记·太史公自序》《报任安书》</div><div class="w-author">司马迁 <span class="w-stars">★★★</span></div><div class="w-era">汉代·史学家</div><div class="w-desc">提出"发愤著书"说——伟大作品多产生于作者遭受困厄愤懑之时（文王拘而演《周易》，仲尼厄而作《春秋》）。对后世"不平则鸣""穷而后工"等理论有深远影响。</div></div>
+  <div class="work-card"><div class="w-title">《法言》</div><div class="w-author">扬雄 <span class="w-stars">★★</span></div><div class="w-era">汉代·辞赋家</div><div class="w-desc">提出"诗人之赋丽以则，辞人之赋丽以淫"——区分诗人之赋与辞人之赋。晚年悔其少作，视辞赋为"雕虫篆刻"。对汉赋批评有重要影响。</div></div>
+  <div class="work-card"><div class="w-title">《汉书·艺文志》</div><div class="w-author">班固 <span class="w-stars">★★</span></div><div class="w-era">汉代·史学家</div><div class="w-desc">中国最早的目录学著作，"诗赋略"反映当时的文学分类观念。论屈原《离骚》"露才扬己"，与王逸发生争论。其"实录"精神影响了后代批评。</div></div>
+  <div class="work-card"><div class="w-title">《论衡》</div><div class="w-author">王充 <span class="w-stars">★★</span></div><div class="w-era">汉代·思想家</div><div class="w-desc">批判当时"虚妄之言"，主张文章要真实有用——"文为世用"。重视文章的真理性、实用性，反对华而不实。开后世经世致用文论的先声。</div></div>
+  <div class="work-card"><div class="w-title">《楚辞章句》</div><div class="w-author">王逸 <span class="w-stars">★★</span></div><div class="w-era">汉代·楚辞学者</div><div class="w-desc">《楚辞章句》是现存最早的《楚辞》注本。其序文为屈原辩护，反驳班固"露才扬己"之论，高度评价屈原"忠贞"精神与《离骚》的浪漫想象。</div></div>
+</div>
+</div>
+</div>
+
+<!-- ════════════ 魏晋南北朝 ════════════ -->
+<div class="era-section" id="weijin">
+<div class="era-title"><span class="badge">魏晋南北朝</span> 220—589年</div>
+
+<div class="genre-tabs">
+  <button class="genre-tab active" onclick="filterGenre('weijin','all',this)">全部著作</button>
+  <button class="genre-tab" onclick="filterGenre('weijin','poem',this)">📜 诗论</button>
+  <button class="genre-tab" onclick="filterGenre('weijin','prose',this)">📝 文论</button>
+  <button class="genre-tab" onclick="filterGenre('weijin','mixed',this)">📋 综合性</button>
+</div>
+
+<!-- 魏晋南北朝诗论 -->
+<div class="genre-section" data-era="weijin" data-genre="poem">
+<div class="genre-head">📜 诗论著作 <span class="sub">"文学的自觉时代"——从曹丕到钟嵘</span></div>
+<div class="flow-line">📖 <strong>发展脉络</strong>：曹丕《典论·论文》（文学专论之始）→ 陆机《文赋》（创作论）→ 挚虞《文章流别论》→ 萧统《文选》（总集批评）→ 钟嵘《诗品》（诗歌品评之祖）</div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《典论·论文》</div><div class="w-author">曹丕 <span class="w-stars">★★★</span></div><div class="w-era">建安</div><div class="w-desc">中国文学批评史上第一篇文学专论。"文以气为主"——作家的气质才性决定作品风格；"四科八体"文体论（奏议宜雅、书论宜理、铭诔尚实、诗赋欲丽）；"经国之大业，不朽之盛事"——空前提高文学地位；反对"文人相轻"。</div></div>
+  <div class="work-card"><div class="w-title">《文赋》</div><div class="w-author">陆机 <span class="w-stars">★★★</span></div><div class="w-era">西晋</div><div class="w-desc">第一篇完整的文学创作论。"诗缘情而绮靡，赋体物而浏亮"——明确诗歌抒情特征；论述构思过程"精骛八极，心游万仞"；"立片言而居要"的警句理论；文体特征分析细致入微。</div></div>
+  <div class="work-card"><div class="w-title">《文选》</div><div class="w-author">萧统 编 <span class="w-stars">★★★</span></div><div class="w-era">南朝梁</div><div class="w-desc">现存最早的诗文总集。序中提出选文标准："事出于沉思，义归乎翰藻"。肯定文学的审美特征，将文学与经史子分离，标志文学观念的自觉。</div></div>
+  <div class="work-card"><div class="w-title">《诗品》</div><div class="w-author">钟嵘 <span class="w-stars">★★★</span></div><div class="w-era">南朝梁</div><div class="w-desc">品评汉魏至齐梁五言诗人122家，分上中下三品。"滋味"说——诗歌应有深厚韵味；"直寻"说——直接描写所见所感；"自然英旨"——反对用典、声病；推重"建安风力"。中国诗歌批评的开山之作。</div></div>
+  <div class="work-card"><div class="w-title">《文章流别论》</div><div class="w-author">挚虞 <span class="w-stars">★★</span></div><div class="w-era">西晋</div><div class="w-desc">最早的文章总集分类批评。对不同文体的性质、源流进行系统辨析，是文体论的奠基之作。</div></div>
+  <div class="work-card"><div class="w-title">《雕虫论》</div><div class="w-author">裴子野 <span class="w-stars">★★</span></div><div class="w-era">南朝梁</div><div class="w-desc">批判齐梁文风雕琢浮艳，提倡质朴实用，反映复古守旧的文学观。与萧纲等宫体文学理论形成对立。</div></div>
+  <div class="work-card"><div class="w-title">《与湘东王书》</div><div class="w-author">萧纲 <span class="w-stars">★★</span></div><div class="w-era">南朝梁</div><div class="w-desc">宫体文学理论宣言："立身先须谨重，文章且须放荡"——文章应自由抒发情性，重视形式之美。与裴子野复古论相对。</div></div>
+</div>
+</div>
+
+<!-- 魏晋南北朝文论 -->
+<div class="genre-section" data-era="weijin" data-genre="prose">
+<div class="genre-head">📝 文论著作 <span class="sub">文体辨析与文笔之辨——文学形式意识的成熟</span></div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《抱朴子》</div><div class="w-author">葛洪 <span class="w-stars">★★</span></div><div class="w-era">东晋</div><div class="w-desc">论文学发展"今胜于古"；文章德行并重；重视文章的艺术价值。其发展观对刘勰等有启发。</div></div>
+  <div class="work-card"><div class="w-title">"文笔说"</div><div class="w-author">南朝文论 <span class="w-stars">★★</span></div><div class="w-era">南朝</div><div class="w-desc">关于"文"（有韵之文）与"笔"（无韵之文）区分的理论。反映了文学自觉意识的深化和对形式特征的重视。刘勰、萧绎等均有论述。</div></div>
+</div>
+</div>
+
+<!-- 魏晋南北朝综合性 -->
+<div class="genre-section" data-era="weijin" data-genre="mixed">
+<div class="genre-head">📋 综合性著作 <span class="sub">体大思精的批评巨著</span></div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《文心雕龙》</div><div class="w-author">刘勰 <span class="w-stars">★★★</span></div><div class="w-era">南朝齐梁</div><div class="w-desc">五十篇，体大思精、笼罩群言，中国文学理论史上最伟大的著作。"原道""征圣""宗经"——文之枢纽；"神思"——创作构思；"体性""风骨""通变"——风格论；"情采"——内容形式关系；"知音"——文学批评方法论。建立了完整的文学理论体系。</div></div>
+</div>
+</div>
+</div>
+
+<!-- ════════════ 隋唐五代 ════════════ -->
+<div class="era-section" id="suitang">
+<div class="era-title"><span class="badge">隋唐五代</span> 581—960年</div>
+
+<div class="genre-tabs">
+  <button class="genre-tab active" onclick="filterGenre('suitang','all',this)">全部著作</button>
+  <button class="genre-tab" onclick="filterGenre('suitang','poem',this)">📜 诗论</button>
+  <button class="genre-tab" onclick="filterGenre('suitang','prose',this)">📝 文论</button>
+</div>
+
+<!-- 隋唐五代诗论 -->
+<div class="genre-section" data-era="suitang" data-genre="poem">
+<div class="genre-head">📜 诗论著作 <span class="sub">唐诗繁荣的时期，诗论从"风骨"到"味外之旨"</span></div>
+<div class="flow-line">📖 <strong>发展脉络</strong>：陈子昂《修竹篇序》（"风骨""兴寄"）→ 杜甫（"转益多师"）→ 元结《箧中集》→ 白居易新乐府（"为时而著"）→ 司空图《二十四诗品》（"味外之旨"）</div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《修竹篇序》</div><div class="w-author">陈子昂 <span class="w-stars">★★★</span></div><div class="w-era">初唐</div><div class="w-desc">提出"汉魏风骨"与"兴寄"——批判齐梁绮靡诗风，主张诗歌恢复风骨、寄托现实。是唐诗革新宣言，为唐诗发展开辟道路，被尊为唐诗革新先驱。</div></div>
+  <div class="work-card"><div class="w-title">《杜工部集》论诗</div><div class="w-author">杜甫 <span class="w-stars">★★★</span></div><div class="w-era">盛唐</div><div class="w-desc">现实主义大诗人，其论诗言论散见于诗篇。"不满今人爱古人，清词丽句必为邻""转益多师是吾师"——多方面学习遗产；重视思想内容，主张诗须有益于国家人民；评价前代诗人精到（庾信、陈子昂、李白等）。</div></div>
+  <div class="work-card"><div class="w-title">《箧中集》</div><div class="w-author">元结 编 <span class="w-stars">★★</span></div><div class="w-era">盛唐</div><div class="w-desc">倡导质朴古淡、反映现实的诗风，与杜甫诗歌主张相近。是唐代诗歌革新的先驱选本。</div></div>
+  <div class="work-card"><div class="w-title">《与元九书》</div><div class="w-author">白居易 <span class="w-stars">★★★</span></div><div class="w-era">中唐</div><div class="w-desc">新乐府运动的理论纲领。"文章合为时而著，歌诗合为事而作"；诗要"言直而切""其辞质而径"；系统阐述"为君、为臣、为民、为物、为事而作"的诗歌主张，重视政治教化作用。</div></div>
+  <div class="work-card"><div class="w-title">《二十四诗品》</div><div class="w-author">司空图 <span class="w-stars">★★★</span></div><div class="w-era">晚唐</div><div class="w-desc">以四言诗形式描述二十四种诗歌风格。"韵外之致""味外之旨""象外之象"——主张诗歌应有言外之意、味外之味。开后世"意境"理论之先声，影响严羽、王士禛。</div></div>
+  <div class="work-card"><div class="w-title">论诗言论</div><div class="w-author">杜牧、李商隐 <span class="w-stars">★</span></div><div class="w-era">晚唐</div><div class="w-desc">杜牧评杜诗重视"风骨"；李商隐论诗主张继承"温柔敦厚"传统。其言论有助于认识晚唐诗论风气。</div></div>
+  <div class="work-card"><div class="w-title">论诗言论</div><div class="w-author">皮日休、陆龟蒙 <span class="w-stars">★</span></div><div class="w-era">晚唐</div><div class="w-desc">继承韩愈古文运动精神，主张文章明道致用，重视诗歌的社会批判作用。皮陆并称，为晚唐现实主义文论的余响。</div></div>
+</div>
+</div>
+
+<!-- 隋唐五代文论 -->
+<div class="genre-section" data-era="suitang" data-genre="prose">
+<div class="genre-head">📝 文论著作 <span class="sub">古文运动——唐代散文理论的高峰</span></div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">韩愈古文理论</div><div class="w-author">韩愈 <span class="w-stars">★★★</span></div><div class="w-era">中唐</div><div class="w-desc">古文运动领袖。"文以载道"（文以明道）——文章为儒家之道服务；"不平则鸣"——作品产生于不平之气；"气盛言宜"——文气说；"惟陈言之务去"——反模拟创新。提倡散体古文，反对骈文。</div></div>
+  <div class="work-card"><div class="w-title">柳宗元古文理论</div><div class="w-author">柳宗元 <span class="w-stars">★★★</span></div><div class="w-era">中唐</div><div class="w-desc">古文运动领袖之一。"文者以明道"——文章阐明圣人之道；强调文章应"辅时及物"——有益时政、切合事物；重视"感激怨怼"之作。与韩愈并称"韩柳"。</div></div>
+</div>
+</div>
+</div>
+
+<!-- ════════════ 宋金元 ════════════ -->
+<div class="era-section" id="songjinyuan">
+<div class="era-title"><span class="badge">宋金元</span> 960—1368年</div>
+
+<div class="genre-tabs">
+  <button class="genre-tab active" onclick="filterGenre('songjinyuan','all',this)">全部著作</button>
+  <button class="genre-tab" onclick="filterGenre('songjinyuan','poem',this)">📜 诗论</button>
+  <button class="genre-tab" onclick="filterGenre('songjinyuan','ci',this)">🎵 词论</button>
+  <button class="genre-tab" onclick="filterGenre('songjinyuan','drama',this)">🎭 戏曲批评</button>
+  <button class="genre-tab" onclick="filterGenre('songjinyuan','novel',this)">📚 小说批评</button>
+</div>
+
+<!-- 宋金元诗论 -->
+<div class="genre-section" data-era="songjinyuan" data-genre="poem">
+<div class="genre-head">📜 诗论著作 <span class="sub">从欧阳修到严羽——诗话体例的创立与成熟</span></div>
+<div class="flow-line">📖 <strong>发展脉络</strong>：欧阳修《六一诗话》（诗话之祖）→ 苏轼（自然天成）→ 黄庭坚与江西诗派（"点铁成金"）→ 张戒《岁寒堂诗话》→ 陆游（"工夫在诗外"）→ 严羽《沧浪诗话》（"妙悟""别材别趣"）→ 金代元好问《论诗三十首》</div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《六一诗话》</div><div class="w-author">欧阳修 <span class="w-stars">★★★</span></div><div class="w-era">北宋</div><div class="w-desc">开创"诗话"体例的著作。提出"诗穷而后工"说——诗人经历困厄才能写出好诗（发展韩愈"不平则鸣"）。领导北宋诗文革新，提倡平易自然文风。</div></div>
+  <div class="work-card"><div class="w-title">苏轼论诗</div><div class="w-author">苏轼 <span class="w-stars">★★★</span></div><div class="w-era">北宋</div><div class="w-desc">"诗中有画，画中有诗"（评王维）；"出新意于法度之中，寄妙理于豪放之外"；"文理自然，姿态横生"；"随物赋形"。崇尚自然天成，反对刻意雕琢。对金代王若虚等有深远影响。</div></div>
+  <div class="work-card"><div class="w-title">黄庭坚论诗</div><div class="w-author">黄庭坚 <span class="w-stars">★★★</span></div><div class="w-era">北宋</div><div class="w-desc">江西诗派祖师。主张"点铁成金""夺胎换骨"——化用前人诗句成语；"无一字无来处"；讲究诗法句法；推崇杜甫的锤炼功夫。影响南宋江西诗派。</div></div>
+  <div class="work-card"><div class="w-title">《岁寒堂诗话》</div><div class="w-author">张戒 <span class="w-stars">★★</span></div><div class="w-era">南宋</div><div class="w-desc">反对苏黄以来"以文字为诗、以议论为诗"，主张"言志"为本，重视诗歌的思想内容和艺术感染力。</div></div>
+  <div class="work-card"><div class="w-title">陆游论诗</div><div class="w-author">陆游 <span class="w-stars">★★</span></div><div class="w-era">南宋</div><div class="w-desc">"汝果欲学诗，工夫在诗外"——诗人须有丰富的生活体验。从江西诗派入而能自出机杼，走向广阔现实。</div></div>
+  <div class="work-card"><div class="w-title">杨万里论诗</div><div class="w-author">杨万里 <span class="w-stars">★★</span></div><div class="w-era">南宋</div><div class="w-desc">"诚斋体"创始人。"闭门觅句非诗法，只是征行自有诗"——诗歌来自生活实践。推重晚唐诗，主张平易自然，反对艰深。</div></div>
+  <div class="work-card"><div class="w-title">姜夔论诗</div><div class="w-author">姜夔 <span class="w-stars">★★</span></div><div class="w-era">南宋</div><div class="w-desc">论诗注重艺术之美，反对以议论、以典故为诗，强调简约含蓄，提出"四种高妙"而以"自然高妙"为最高境界。开严羽"妙悟"理论先声。</div></div>
+  <div class="work-card"><div class="w-title">朱熹论诗</div><div class="w-author">朱熹 <span class="w-stars">★★★</span></div><div class="w-era">南宋</div><div class="w-desc">理学家文学观的代表。主张"文道一贯"——文与道统一，文从道中流出；以道为本。对《诗经》"郑卫之音"等有独特见解，影响深远。</div></div>
+  <div class="work-card"><div class="w-title">《沧浪诗话》</div><div class="w-author">严羽 <span class="w-stars">★★★</span></div><div class="w-era">南宋</div><div class="w-desc">宋代诗话中最有系统者。"诗有别材，非关书也；诗有别趣，非关理也"——"别材别趣"说；"妙悟"说；"以盛唐为法"；"兴趣"说——"羚羊挂角，无迹可求"。对明清诗论影响深刻。</div></div>
+  <div class="work-card"><div class="w-title">《论诗三十首》</div><div class="w-author">元好问 <span class="w-stars">★★★</span></div><div class="w-era">金代</div><div class="w-desc">以绝句论诗，评述汉魏至宋金诗人。"眼处心生句自神"——重视亲身体验；推崇"天然""真淳"；批评江西诗派。金代文学批评的最高成就。</div></div>
+  <div class="work-card"><div class="w-title">《滹南诗话》</div><div class="w-author">王若虚 <span class="w-stars">★★</span></div><div class="w-era">金代</div><div class="w-desc">主张"文章以意为主"，反对江西诗派模拟剽窃，崇尚自然真淳，与元好问文学主张相近。</div></div>
+</div>
+</div>
+
+<!-- 宋金元词论 -->
+<div class="genre-section" data-era="songjinyuan" data-genre="ci">
+<div class="genre-head">🎵 词论著作 <span class="sub">宋代词学——"别是一家"与"清空雅正"</span></div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《词论》</div><div class="w-author">李清照 <span class="w-stars">★★★</span></div><div class="w-era">北宋末南宋初</div><div class="w-desc">古代第一篇系统的词学专论。提出词"别是一家，知之者少"——词与诗有别；词须协音律、重铺叙、尚故实；批评苏轼"句读不葺之诗"。被称为"词论开山"之作。</div></div>
+  <div class="work-card"><div class="w-title">《词源》</div><div class="w-author">张炎 <span class="w-stars">★★★</span></div><div class="w-era">宋末元初</div><div class="w-desc">论词以"清空"为最高标准——"清空则古雅峭拔，质实则凝涩晦昧"；主张"雅正"；评姜夔词"清空骚雅"。与李清照《词论》并称宋代词论双璧。</div></div>
+</div>
+</div>
+
+<!-- 宋金元戏曲批评 -->
+<div class="genre-section" data-era="songjinyuan" data-genre="drama">
+<div class="genre-head">🎭 戏曲批评著作 <span class="sub">元代戏曲批评的萌芽——从声乐论到音韵论</span></div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《唱论》</div><div class="w-author">芝庵 <span class="w-stars">★★</span></div><div class="w-era">元代</div><div class="w-desc">最早的戏曲声乐理论著作。论述演唱艺术，对演唱技巧、风格有系统总结，是中国戏曲批评萌芽时期的重要文献。</div></div>
+  <div class="work-card"><div class="w-title">《中原音韵》</div><div class="w-author">周德清 <span class="w-stars">★★★</span></div><div class="w-era">元代</div><div class="w-desc">规范北曲音韵的划时代著作。提出"作曲十法"，对元曲的创作和演唱进行理论总结。是元代曲论最重要的著作。</div></div>
+</div>
+</div>
+
+<!-- 宋金元小说批评 -->
+<div class="genre-section" data-era="songjinyuan" data-genre="novel">
+<div class="genre-head">📚 小说批评著作 <span class="sub">说话艺术的理论总结——小说批评的萌芽</span></div>
+<div class="work-grid">
+  <div class="work-card"><div class="w-title">《醉翁谈录》</div><div class="w-author">罗烨 <span class="w-stars">★★</span></div><div class="w-era">元代</div><div class="w-desc">现存最早的小说专论之一。总结说话艺术（小说讲史）的题材分类、艺术技巧，反映了宋代说话艺术的理论总结，是小说批评萌芽的重要标志。</div></div>
+</div>
+</div>
 </div>
 
 <!-- ════════════ 明代 ════════════ -->
@@ -281,7 +456,7 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 
 <!-- footer -->
 <div style="text-align:center;padding:24px 0;margin-top:20px;border-top:1px solid #d0e4f7">
-  <p style="font-size:12px;color:#7a9bcb">共收录明代+清代前中期 诗论 / 文论 / 词论 / 戏曲批评 / 小说批评 专著与评点</p>
+  <p style="font-size:12px;color:#7a9bcb">共收录 六编（先秦两汉 / 魏晋南北朝 / 隋唐五代 / 宋金元 / 明代 / 清代前中期）诗论 / 文论 / 词论 / 戏曲批评 / 小说批评 专著与评点</p>
   <p style="font-size:12px;color:#7a9bcb;margin-top:4px">本书未设专章讨论书论和画论，建议参阅《中国书画理论史》《中国美学史》</p>
 </div>
 </div>
